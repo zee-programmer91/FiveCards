@@ -1,3 +1,4 @@
+#include "Board.h"
 #include "Card.h"
 #include "Deck.h"
 #include "Tests.h"
@@ -10,13 +11,8 @@ int main()
 
 	if (Tests::runTests())
 	{
-		Deck deck{};
+		Board board{"Board.txt"};
 
-		for (int count = 1; count <= 52; count++)
-		{
-			auto card = deck.getNextCard();
-			std::cout << "Value: " << card.getCardValue() << "\n";
-			std::cout << "Type: "  << card.getCardType()  << "\n\n";
-		}
+		board.displayBoard();
 	}
 }

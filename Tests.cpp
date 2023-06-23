@@ -41,8 +41,6 @@ bool Tests::testDeck()
 	for (int count = 1; count <= 52; count++)
 	{
 		auto card = deck.getNextCard();
-		std::cout << "Value: " << card.getCardValue() << "\n";
-		std::cout << "Type: " << card.getCardType() << "\n\n";
 		mySet.insert(card.getCardValue() + card.getCardType());
 	}
 
