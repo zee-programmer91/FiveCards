@@ -1,11 +1,12 @@
-#include "Card.h"
 #include "Tests.h"
 
-#include <iostream>
 
 bool Tests::runTests()
 {
 	if (!testCard())
+		return false;
+
+	if (!testDeck())
 		return false;
 
 	return true;
@@ -28,6 +29,25 @@ bool Tests::testCard()
 			<< card.getCardType() << "\n";
 		return false;
 	}
+
+	return true;
+}
+
+bool Tests::testDeck()
+{
+	Deck deck{};
+	std::set<std::string> mySet{};
+
+	for (int count = 1; count <= 52; count++)
+	{
+		auto card = deck.getNextCard();
+		std::cout << "Value: " << card.getCardValue() << "\n";
+		std::cout << "Type: " << card.getCardType() << "\n\n";
+		mySet.insert(card.getCardValue() + card.getCardType());
+	}
+
+	if (52 != mySet.size())
+		return false;
 
 	return true;
 }

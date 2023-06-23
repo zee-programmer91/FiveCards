@@ -7,7 +7,6 @@
 
 int main()
 {
-	std::set<std::string> mySet{};
 
 	if (Tests::runTests())
 	{
@@ -18,9 +17,6 @@ int main()
 			auto card = deck.getNextCard();
 			std::cout << "Value: " << card.getCardValue() << "\n";
 			std::cout << "Type: "  << card.getCardType()  << "\n\n";
-			mySet.insert(card.getCardValue()+card.getCardType());
 		}
 	}
-
-	std::cout << "Program Ended! count: "<< mySet.size() <<"\n";
 }
