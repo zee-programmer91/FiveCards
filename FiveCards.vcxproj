@@ -152,12 +152,16 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="CardPositions.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Garbage.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Tests.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Board.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
