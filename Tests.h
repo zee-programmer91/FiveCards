@@ -1,4 +1,9 @@
 #pragma once
+#include "Card.h"
+#include "Deck.h"
+
+#include <iostream>
+#include <set>
 
 class Tests
 {
@@ -6,4 +11,5 @@ class Tests
 		static bool runTests();
 	private:
 		static bool testCard();
+		static bool testDeck();
 };
