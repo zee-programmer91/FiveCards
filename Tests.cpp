@@ -5,7 +5,13 @@ bool Tests::runTests()
 	if (!testCard())
 		return false;
 
+	if (!testCommand())
+		return false;
+
 	if (!testDeck())
+		return false;
+
+	if (!testHelper())
 		return false;
 
 	if (!testPlayer())
@@ -29,6 +35,67 @@ bool Tests::testCard()
 	{
 		std::cout << "Card.getCardType()\nExpected: H\nActual: "
 			<< card.getCardType() << "\n";
+		return false;
+	}
+
+	return true;
+}
+
+bool Tests::testCommand()
+{
+	Command command{ "CommandTest" };
+
+	if ("CommandTest" != command.getCommandName())
+	{
+		std::cout << "Command.getCommandName()\nExpected: \"CommandTest\"\nActual: "
+			<< command.getCommandName() << "\n";
+		return false;
+	}
+
+	command = Command::createCommand("GetCardFromDeck");
+
+	if ("GetCardFromDeck" != command.getCommandName())
+	{
+		std::cout << "Command.getCommandName()\nExpected: \"GetCardFromDeck\"\nActual: "
+			<< command.getCommandName() << "\n";
+		return false;
+	}
+
+	if (typeid(Command) != typeid(command))
+	{
+		std::cout << "Command::createCommand()\nExpected: Command\n";
+		return false;
+	}
+
+	command = Command::createCommand("FailedCommand");
+
+	if ("" != command.getCommandName())
+	{
+		std::cout << "Command::createCommand()\nExpected: \"\"\nActual: "
+			<< command.getCommandName() << "\n";
+		return false;
+	}
+
+	return true;
+}
+
+bool Tests::testHelper()
+{
+	auto phrases = Helper::split("one two three", ' ');
+
+	if (3 != phrases.size())
+	{
+		std::cout << "Helper.split()\nExpected: \"3\"\nActual: "
+			<< phrases.size() << "\n";
+		return false;
+	}
+
+	phrases = Helper::split("one,two,three,four", ',');
+
+	if (4 != phrases.size())
+	{
+		std::cout << "Helper.split()\nExpected: \"4\"\nActual: "
+			<< phrases.size() << "\n";
 		return false;
 	}
 
