@@ -4,6 +4,7 @@
 #include "Garbage.h"
 
 #include <array>
+#include <set>
 #include <vector>
 
 class Deck
@@ -11,8 +12,9 @@ class Deck
 	public:
 		Deck();
 		Card getNextCard();
+		std::array<Card, 52> getAllDeckCards();
 	private:
-		std::vector<int> randomIndices{};
+		std::set<int> randomIndices{};
 		const std::array<Card, 52> deckCards
 		{
 			{
