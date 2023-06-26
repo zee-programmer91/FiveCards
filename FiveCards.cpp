@@ -15,9 +15,9 @@ int main()
 		Deck deck{};
 		Player player1{};
 		Player player2{};
+		std::vector<Player> players{ player1 , player2};
 
-		Board board{"Board.txt"};
-
+		Board board{ "Board.txt", players };
 		board.displayBoard();
 	}
 }

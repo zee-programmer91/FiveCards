@@ -1,4 +1,7 @@
 #pragma once
+#include "Player.h"
+#include "Structs.h"
+
 #include <fstream>
 #include <iostream>
 #include <map>
@@ -8,11 +11,13 @@
 class Board
 {
 	public:
-		Board(std::string filePath);
+		Board(std::string filePath, std::vector<Player>& players);
 		~Board();
 		void displayBoard();
 	private:
 		void readFromFile();
-		std::vector<std::string> boardInterface{};
-		std::ifstream file{};
+		void refreshBoard();
+		std::vector<std::vector<std::string>> boardInterface{};
+		std::ifstream interfaceFile{};
+		std::vector<Player>& players;
 };

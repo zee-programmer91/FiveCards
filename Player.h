@@ -10,10 +10,10 @@ class Player
 		Card getCard(int position);
 	private:
 		std::array<Card, 5> cards = {
-			Card{"E", "X"},
-			Card{"E", "X"},
-			Card{"E", "X"},
-			Card{"E", "X"},
-			Card{"E", "X"},
+			Card{"E", CardTypes::empty},
+			Card{"E", CardTypes::empty},
+			Card{"E", CardTypes::empty},
+			Card{"E", CardTypes::empty},
+			Card{"E", CardTypes::empty},
 		};
 };

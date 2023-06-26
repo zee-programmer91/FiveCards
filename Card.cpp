@@ -1,18 +1,6 @@
 #include "Card.h"
 
-Card::Card(std::string value, std::string type) : cardValue(value)
-{
-	if ("C" == type || "c" == type)
-		cardType = clubs;
-	else if ("D" == type || "d" == type)
-		cardType = diamonds;
-	else if ("H" == type || "h" == type)
-		cardType = hearts;
-	else if ("S" == type || "s" == type)
-		cardType = spades;
-	else if ("E" == type || "e" == type)
-		cardType = spades;
-}
+Card::Card(std::string value, CardTypes type) : cardValue(value), cardType(type){}
 
 std::string Card::getCardValue()
 {
@@ -21,5 +9,17 @@ std::string Card::getCardValue()
 
 std::string Card::getCardType()
 {
-	return cardType.value;
+	switch (cardType)
+	{
+		case CardTypes::clubs:
+			return "C";
+		case CardTypes::diamonds:
+			return "D";
+		case CardTypes::hearts:
+			return "H";
+		case CardTypes::spades:
+			return "S";
+		default:
+			return "X";
+	}
 }
