@@ -44,7 +44,6 @@ bool Tests::testCard()
 bool Tests::testCommand()
 {
 	Command command{ "CommandTest" };
-
 	if ("CommandTest" != command.getCommandName())
 	{
 		std::cout << "Command.getCommandName()\nExpected: \"CommandTest\"\nActual: "
@@ -52,27 +51,24 @@ bool Tests::testCommand()
 		return false;
 	}
 
-	command = Command::createCommand("GetCardFromDeck");
-
-	if ("GetCardFromDeck" != command.getCommandName())
+	auto validCommand1 = GetCardFromDeck();
+	if (!validCommand1.execute())
 	{
-		std::cout << "Command.getCommandName()\nExpected: \"GetCardFromDeck\"\nActual: "
-			<< command.getCommandName() << "\n";
+		std::cout << "GetCardFromDeck.execute()\nExpected: true\nActual: false\n";
 		return false;
 	}
 
-	if (typeid(Command) != typeid(command))
+	auto validCommand2 = GetCardFromGarbage();
+	if (!validCommand2.execute())
 	{
-		std::cout << "Command::createCommand()\nExpected: Command\n";
+		std::cout << "GetCardFromGarbage.execute()\nExpected: \"true\"\nActual: false\n";
 		return false;
 	}
 
-	command = Command::createCommand("FailedCommand");
-
-	if ("" != command.getCommandName())
+	auto invalidCommand = Command("FaillingCommand");
+	if (invalidCommand.execute())
 	{
-		std::cout << "Command::createCommand()\nExpected: \"\"\nActual: "
-			<< command.getCommandName() << "\n";
+		std::cout << "FaillingCommand.execute()\nExpected: \"false\"\nActual: true\n";
 		return false;
 	}
 
