@@ -143,8 +143,11 @@
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Exit.cpp" />
     <ClCompile Include="FiveCards.cpp" />
     <ClCompile Include="Garbage.cpp" />
+    <ClCompile Include="GetCardFromDeck.cpp" />
+    <ClCompile Include="GetCardFromGarbage.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Print.cpp" />
@@ -156,7 +159,10 @@
     <ClInclude Include="CardPositions.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="Exit.h" />
     <ClInclude Include="Garbage.h" />
+    <ClInclude Include="GetCardFromDeck.h" />
+    <ClInclude Include="GetCardFromGarbage.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Structs.h" />
