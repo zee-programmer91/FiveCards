@@ -1,8 +1,8 @@
 #include "Exit.h"
+
 #include <iostream>
 
-bool Exit::execute()
+bool Exit::execute(Board* board)
 {
-	std::cout << "Executed command '" << name << "'\n";
 	return false;
 }

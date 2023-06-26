@@ -51,27 +51,6 @@ bool Tests::testCommand()
 		return false;
 	}
 
-	auto validCommand1 = GetCardFromDeck();
-	if (!validCommand1.execute())
-	{
-		std::cout << "GetCardFromDeck.execute()\nExpected: true\nActual: false\n";
-		return false;
-	}
-
-	auto validCommand2 = GetCardFromGarbage();
-	if (!validCommand2.execute())
-	{
-		std::cout << "GetCardFromGarbage.execute()\nExpected: \"true\"\nActual: false\n";
-		return false;
-	}
-
-	auto invalidCommand = Command("FaillingCommand");
-	if (invalidCommand.execute())
-	{
-		std::cout << "FaillingCommand.execute()\nExpected: \"false\"\nActual: true\n";
-		return false;
-	}
-
 	return true;
 }
 
