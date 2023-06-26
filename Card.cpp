@@ -10,6 +10,8 @@ Card::Card(std::string value, std::string type) : cardValue(value)
 		cardType = hearts;
 	else if ("S" == type || "s" == type)
 		cardType = spades;
+	else if ("E" == type || "e" == type)
+		cardType = spades;
 }
 
 std::string Card::getCardValue()
