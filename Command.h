@@ -15,14 +15,9 @@ class Command
 		static AvailableCommands getUserRequest(Board& board);
 
 		template<typename CommandType>
-		static CommandType getCommand()
-		{
-			return CommandType{};
-		};
-
-		template<typename CommandType>
-		static bool handleCommand(CommandType command)
-		{
+		static bool handleRequest()
+		{	
+			CommandType command{};
 			return command.execute();
 		};
 	protected:
