@@ -1,4 +1,5 @@
 #include "Board.h"
+#include "Command.h"
 
 Board::Board(std::string filePath, std::vector<Player>& newPlayers, Deck& newDeck) : players(newPlayers), deck(newDeck)
 {
@@ -37,6 +38,13 @@ void Board::displayBoard()
 	}
 }
 
+void Board::displayTitle()
+{
+	std::cout << "\n						############################\n";
+	std::cout << "						 WELCOME TO FIVE CARDS GAME\n";
+	std::cout << "						############################\n\n";
+}
+
 void Board::readFromFile()
 {
 	std::string row{};
@@ -48,6 +56,26 @@ void Board::readFromFile()
 		for (const auto value : row)
 			boardRow.push_back(std::string{ value });
 		boardInterface.push_back(boardRow);
+	}
+}
+
+bool Board::runGame()
+{
+	auto request = Command::getUserRequest(this);
+
+	if (request == AvailableCommands::Exit)
+	{
+		return Command::handleRequest<Exit>();
+	}
+
+	else if (request == AvailableCommands::GetCardFromDeck)
+	{
+		return Command::handleRequest<GetCardFromDeck>();
+	}
+
+	else if (request == AvailableCommands::GetCardFromGarbage)
+	{
+		return Command::handleRequest<GetCardFromGarbage>();
 	}
 }
 

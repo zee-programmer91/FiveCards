@@ -1,5 +1,8 @@
 #pragma once
 #include "Deck.h"
+#include "Exit.h"
+#include "GetCardFromDeck.h"
+#include "GetCardFromGarbage.h"
 #include "Player.h"
 #include "Structs.h"
 
@@ -15,6 +18,8 @@ class Board
 		Board(std::string filePath, std::vector<Player>& players, Deck& deck);
 		~Board();
 		void displayBoard();
+		void displayTitle();
+		bool runGame();
 	private:
 		void readFromFile();
 		void refreshBoard();

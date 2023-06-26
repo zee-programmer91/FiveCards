@@ -12,7 +12,7 @@ class Command
 		Command(std::string instruction);
 		std::string getCommandName();
 		bool execute();
-		static AvailableCommands getUserRequest(Board& board);
+		static AvailableCommands getUserRequest(Board* board);
 
 		template<typename CommandType>
 		static bool handleRequest()
