@@ -14,6 +14,7 @@ Board::~Board()
 void Board::displayBoard()
 {
 	refreshBoard();
+	std::cout << "\n";
 	for (const auto row : boardInterface)
 	{
 		for (const auto value : row)

@@ -24,3 +24,10 @@ enum class CardTypes
 	hearts = 3,
 	spades = 4,
 };
+
+enum class AvailableCommands
+{
+	Exit = 1,
+	GetCardFromDeck = 2,
+	GetCardFromGarbage = 3,
+};

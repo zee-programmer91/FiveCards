@@ -1,3 +1,8 @@
 #include "GetCardFromGarbage.h"
+#include <iostream>
 
-GetCardFromGarbage::GetCardFromGarbage(std::string command) : Command(command) {}
+bool GetCardFromGarbage::execute()
+{
+	std::cout << "Executed command '" << name << "'\n";
+	return true;
+}
