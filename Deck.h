@@ -5,6 +5,7 @@
 
 #include <array>
 #include <set>
+#include <time.h>
 #include <vector>
 
 class Deck
@@ -14,7 +15,7 @@ class Deck
 		Card getNextCard();
 		std::array<Card, 52> getAllDeckCards();
 	private:
-		std::set<int> randomIndices{};
+		std::vector<int> randomIndices{};
 		const std::array<Card, 52> deckCards
 		{
 			{

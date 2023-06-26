@@ -21,7 +21,7 @@ int main()
 		Player player2{};
 		std::vector<Player> players{ player1 , player2};
 
-		Board board{ "Board.txt", players };
+		Board board{ "Board.txt", players, deck };
 
 		std::cout << "\n						############################\n";
 		std::cout << "						 WELCOME TO FIVE CARDS GAME\n";

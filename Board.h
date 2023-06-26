@@ -1,4 +1,5 @@
 #pragma once
+#include "Deck.h"
 #include "Player.h"
 #include "Structs.h"
 
@@ -11,13 +12,15 @@
 class Board
 {
 	public:
-		Board(std::string filePath, std::vector<Player>& players);
+		Board(std::string filePath, std::vector<Player>& players, Deck& deck);
 		~Board();
 		void displayBoard();
 	private:
 		void readFromFile();
 		void refreshBoard();
+		void initializePlayerCards();
 		std::vector<std::vector<std::string>> boardInterface{};
 		std::ifstream interfaceFile{};
 		std::vector<Player>& players;
+		Deck deck;
 };

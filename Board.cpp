@@ -1,14 +1,27 @@
 #include "Board.h"
 
-Board::Board(std::string filePath, std::vector<Player>& newPlayers) : players(newPlayers)
+Board::Board(std::string filePath, std::vector<Player>& newPlayers, Deck& newDeck) : players(newPlayers), deck(newDeck)
 {
 	interfaceFile.open(filePath);
 	readFromFile();
+	initializePlayerCards();
 }
 
 Board::~Board()
 {
 	interfaceFile.close();
+}
+
+void Board::initializePlayerCards()
+{
+	for (auto& player : players)
+	{
+		player.setCard(1, deck.getNextCard());
+		player.setCard(2, deck.getNextCard());
+		player.setCard(3, deck.getNextCard());
+		player.setCard(4, deck.getNextCard());
+		player.setCard(5, deck.getNextCard());
+	}
 }
 
 void Board::displayBoard()
@@ -32,7 +45,7 @@ void Board::readFromFile()
 		std::getline(interfaceFile, row);
 		std::vector<std::string> boardRow{};
 
-		for (auto value : row)
+		for (const auto value : row)
 			boardRow.push_back(std::string{ value });
 		boardInterface.push_back(boardRow);
 	}
@@ -54,7 +67,7 @@ void Board::refreshBoard()
 	auto card5Type = CardPositions::card5 + 1;
 
 	int count = 0;
-	for (auto availablePlayer : availablePlayers)
+	for (const auto availablePlayer : availablePlayers)
 	{
 		boardInterface[availablePlayer][card1Value] = players[count].getCard(1).getCardValue();
 		boardInterface[availablePlayer][card1Type] = players[count].getCard(1).getCardType();
