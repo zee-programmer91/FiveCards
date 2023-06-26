@@ -1,5 +1,8 @@
 #include "Board.h"
 #include "Command.h"
+#include "Exit.h"
+#include "GetCardFromDeck.h"
+#include "GetCardFromGarbage.h"
 
 Board::Board(std::string filePath, std::vector<Player>& newPlayers, Deck& newDeck) : players(newPlayers), deck(newDeck)
 {
@@ -45,6 +48,17 @@ void Board::displayTitle()
 	std::cout << "						############################\n\n";
 }
 
+Card Board::getCardFromDeck()
+{
+	return deck.getNextCard();
+}
+
+Player& Board::getPlayer(int number)
+{
+	number--;
+	return players[number];
+}
+
 void Board::readFromFile()
 {
 	std::string row{};
@@ -65,17 +79,17 @@ bool Board::runGame()
 
 	if (request == AvailableCommands::Exit)
 	{
-		return Command::handleRequest<Exit>();
+		return Command::handleRequest<Exit>(this);
 	}
 
 	else if (request == AvailableCommands::GetCardFromDeck)
 	{
-		return Command::handleRequest<GetCardFromDeck>();
+		return Command::handleRequest<GetCardFromDeck>(this);
 	}
 
 	else if (request == AvailableCommands::GetCardFromGarbage)
 	{
-		return Command::handleRequest<GetCardFromGarbage>();
+		return Command::handleRequest<GetCardFromGarbage>(this);
 	}
 }
 

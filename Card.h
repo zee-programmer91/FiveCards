@@ -7,6 +7,7 @@ class Card
 {
 public:
 	Card(std::string value, CardTypes type);
+	std::string getCardInfor();
 	std::string getCardValue();
 	std::string getCardType();
 

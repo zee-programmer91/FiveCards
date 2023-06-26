@@ -15,10 +15,10 @@ class Command
 		static AvailableCommands getUserRequest(Board* board);
 
 		template<typename CommandType>
-		static bool handleRequest()
+		static bool handleRequest(Board* board)
 		{	
 			CommandType command{};
-			return command.execute();
+			return command.execute(board);
 		};
 	protected:
 		std::string name;

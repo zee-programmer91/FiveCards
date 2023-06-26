@@ -1,8 +1,5 @@
 #pragma once
 #include "Deck.h"
-#include "Exit.h"
-#include "GetCardFromDeck.h"
-#include "GetCardFromGarbage.h"
 #include "Player.h"
 #include "Structs.h"
 
@@ -19,6 +16,8 @@ class Board
 		~Board();
 		void displayBoard();
 		void displayTitle();
+		Card getCardFromDeck();
+		Player& getPlayer(int number);
 		bool runGame();
 	private:
 		void readFromFile();
