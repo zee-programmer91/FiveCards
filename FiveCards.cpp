@@ -21,7 +21,7 @@ int main()
 		Player player2{};
 		std::vector<Player> players{ player1 , player2};
 
-		Board board{ "Board.txt", players };
+		Board board{ "Board.txt", players, deck };
 
 		std::cout << "\n						############################\n";
 		std::cout << "						 WELCOME TO FIVE CARDS GAME\n";
@@ -33,20 +33,17 @@ int main()
 
 			if (request == AvailableCommands::Exit)
 			{
-				auto command = Command::getCommand<Exit>();
-				continueGame = Command::handleCommand<Exit>(command);
+				continueGame = Command::handleRequest<Exit>();
 			}
 
 			else if (request == AvailableCommands::GetCardFromDeck)
 			{
-				auto command = Command::getCommand<GetCardFromDeck>();
-				continueGame = Command::handleCommand<GetCardFromDeck>(command);
+				continueGame = Command::handleRequest<GetCardFromDeck>();
 			}
 
 			else if (request == AvailableCommands::GetCardFromGarbage)
 			{
-				auto command = Command::getCommand<GetCardFromGarbage>();
-				continueGame = Command::handleCommand<GetCardFromGarbage>(command);
+				continueGame = Command::handleRequest<GetCardFromGarbage>();
 			}
 		}
 	}
