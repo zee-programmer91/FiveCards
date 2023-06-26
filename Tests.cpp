@@ -1,12 +1,14 @@
 #include "Tests.h"
 
-
 bool Tests::runTests()
 {
 	if (!testCard())
 		return false;
 
 	if (!testDeck())
+		return false;
+
+	if (!testPlayer())
 		return false;
 
 	return true;
@@ -18,14 +20,14 @@ bool Tests::testCard()
 
 	if ("1" != card.getCardValue())
 	{
-		std::cout << "getCardValue()\nExpected: \"1\"\nActual: "
+		std::cout << "Card.()\nExpected: \"1\"\nActual: "
 			        << card.getCardValue() << "\n";
 		return false;
 	}
 
-	if ("HEARTS" != card.getCardType())
+	if ("H" != card.getCardType())
 	{
-		std::cout << "getCardType()\nExpected: C\nActual: "
+		std::cout << "Card.getCardType()\nExpected: H\nActual: "
 			<< card.getCardType() << "\n";
 		return false;
 	}
@@ -36,16 +38,38 @@ bool Tests::testCard()
 bool Tests::testDeck()
 {
 	Deck deck{};
-	std::set<std::string> mySet{};
+	auto size = deck.getAllDeckCards().size();
 
-	for (int count = 1; count <= 52; count++)
+	if (52 != size)
 	{
-		auto card = deck.getNextCard();
-		mySet.insert(card.getCardValue() + card.getCardType());
+		std::cout << "Deck.getAllDeckCards()\nExpected: 52\nActual: "
+			<< deck.getAllDeckCards().size() << "\n";
+		return false;
 	}
 
-	if (52 != mySet.size())
+	return true;
+}
+
+bool Tests::testPlayer()
+{
+	Player player{};
+	player.setCard(3, Card{"2", "H"});
+
+	auto thirdCard = player.getCard(3);
+
+	if ("2" != thirdCard.getCardValue())
+	{
+		std::cout << "Player.getCardValue()\nExpected: 2\nActual: "
+			<< thirdCard.getCardValue() << "\n";
 		return false;
+	}
+
+	if ("H" != thirdCard.getCardType())
+	{
+		std::cout << "Player.getCardValue()\nExpected: H\nActual: "
+			<< thirdCard.getCardType() << "\n";
+		return false;
+	}
 
 	return true;
 }

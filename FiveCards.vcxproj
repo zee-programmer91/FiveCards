@@ -147,6 +147,7 @@
     <ClCompile Include="Garbage.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Print.cpp" />
     <ClCompile Include="Tests.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +159,7 @@
     <ClInclude Include="Garbage.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Structs.h" />
     <ClInclude Include="Tests.h" />
   </ItemGroup>
   <ItemGroup>

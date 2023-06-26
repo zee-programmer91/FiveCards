@@ -1,6 +1,7 @@
 #include "Board.h"
 #include "Card.h"
 #include "Deck.h"
+#include "Player.h"
 #include "Tests.h"
 
 #include <iostream>
@@ -11,6 +12,10 @@ int main()
 
 	if (Tests::runTests())
 	{
+		Deck deck{};
+		Player player1{};
+		Player player2{};
+
 		Board board{"Board.txt"};
 
 		board.displayBoard();
