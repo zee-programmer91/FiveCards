@@ -15,6 +15,10 @@ class Board
 		Board(std::string filePath, std::vector<Player>& players, Deck& deck);
 		~Board();
 		void displayBoard();
+		void displayTitle();
+		Card getCardFromDeck();
+		Player& getPlayer(int number);
+		bool runGame();
 	private:
 		void readFromFile();
 		void refreshBoard();

@@ -1,8 +1,8 @@
 #include "GetCardFromGarbage.h"
+
 #include <iostream>
 
-bool GetCardFromGarbage::execute()
+bool GetCardFromGarbage::execute(Board* board)
 {
-	std::cout << "Executed command '" << name << "'\n";
 	return true;
 }

@@ -2,6 +2,11 @@
 
 Card::Card(std::string value, CardTypes type) : cardValue(value), cardType(type){}
 
+std::string Card::getCardInfor()
+{
+	return getCardValue() + getCardType();
+}
+
 std::string Card::getCardValue()
 {
 	return cardValue;

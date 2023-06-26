@@ -7,13 +7,13 @@ std::string Command::getCommandName()
 	return name;
 }
 
-AvailableCommands Command::getUserRequest(Board& board)
+AvailableCommands Command::getUserRequest(Board* board)
 {
 	std::string response;
 
 	while (true)
 	{
-		board.displayBoard();
+		board->displayBoard();
 		std::cout << "\nWhat do you want to do?\n";
 		std::cout << "1 - Exit\n";
 		std::cout << "2 - Get Card From Deck\n";
