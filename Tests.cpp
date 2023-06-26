@@ -16,7 +16,7 @@ bool Tests::runTests()
 
 bool Tests::testCard()
 {
-	Card card{ "1", "H" };
+	Card card{ "1", CardTypes::hearts };
 
 	if ("1" != card.getCardValue())
 	{
@@ -53,7 +53,7 @@ bool Tests::testDeck()
 bool Tests::testPlayer()
 {
 	Player player{};
-	player.setCard(3, Card{"2", "H"});
+	player.setCard(3, Card{"2", CardTypes::hearts });
 
 	auto thirdCard = player.getCard(3);
 
