@@ -1,8 +1,9 @@
 #pragma once
-#include "Command.h"
+#include <string>
 
-class GetCardFromDeck : public Command
+class GetCardFromDeck
 {
 	public:
-		GetCardFromDeck(std::string command);
+		std::string name = "GetCardFromDeck";
+		bool execute();
 };

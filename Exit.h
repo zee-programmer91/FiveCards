@@ -1,5 +1,9 @@
 #pragma once
-#include "Command.h"
-class Exit : Command
+#include <string>
+
+class Exit
 {
+	public:
+		std::string name = "Exit";
+		bool execute();
 };

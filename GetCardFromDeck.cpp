@@ -1,3 +1,8 @@
 #include "GetCardFromDeck.h"
+#include <iostream>
 
-GetCardFromDeck::GetCardFromDeck(std::string command) : Command(command){}
+bool GetCardFromDeck::execute()
+{
+	std::cout << "Executed command '" << name << "'\n";
+	return true;
+}
