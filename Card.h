@@ -6,22 +6,16 @@
 class Card
 {
 public:
-	Card(std::string value, std::string type);
+	Card(std::string value, CardTypes type);
 	std::string getCardValue();
 	std::string getCardType();
 
 	void operator=(const Card& newCard)
 	{
-		cardType.value = newCard.cardType.value;
+		cardType = newCard.cardType;
 		cardValue = newCard.cardValue;
 	}
 private:
-	CardTypes hearts{ "H" };
-	CardTypes clubs{ "C" };
-	CardTypes diamonds{ "D" };
-	CardTypes spades{ "H" };
-	CardTypes empty{ "E" };
-
-	CardTypes cardType;
+	CardTypes cardType = CardTypes::empty;
 	std::string cardValue;
 };
