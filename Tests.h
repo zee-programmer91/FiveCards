@@ -13,10 +13,10 @@
 class Tests
 {
 	public:
-		static bool runTests();
+		static bool RunTests();
 	private:
-		static bool testCard();
-		static bool testDeck();
-		static bool testHelper();
-		static bool testPlayer();
+		static bool TestCard();
+		static bool TestDeck();
+		static bool TestHelper();
+		static bool TestPlayer();
 };

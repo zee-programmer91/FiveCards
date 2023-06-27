@@ -6,5 +6,5 @@
 class Helper
 {
 	public:
-		static std::vector<std::string> split(std::string phrase, char delimiter);
+		static std::vector<std::string> Split(std::string phrase, char delimiter);
 };
