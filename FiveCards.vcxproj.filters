@@ -54,6 +54,9 @@
     <ClCompile Include="GetCardFromGarbage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GetFrom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h">
@@ -80,9 +83,6 @@
     <ClInclude Include="Tests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CardPositions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Structs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -93,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GetCardFromGarbage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GetCardFrom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
