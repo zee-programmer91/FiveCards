@@ -5,29 +5,26 @@
 
 bool GetCardFromDeck::execute(Board* board)
 {
-	auto card = board->getCardFromDeck();
+	auto newCard = board->getCardFromDeck();
 
 	//	Changes cards for player 2 (Player 1 is computer so far)
 	auto& player = board->getPlayer(2);
 
-	std::cout << "The card you picked is: " << card.getCardInfor() << "\n\n";
+	std::cout << "The card you picked is: " << newCard.getCardInfor() << "\n\n";
 
 	auto response = Command::getCardResponse();
 
-	if ("1" == response)
-		player.setCard(CardNumber::ONE, card);
+	auto cardNumber = CardNumber::ONE;
+	if ("2" == response)
+		cardNumber = CardNumber::TWO;
+	if ("3" == response)
+		cardNumber = CardNumber::THREE;
+	if ("4" == response)
+		cardNumber = CardNumber::FOUR;
+	if ("5" == response)
+		cardNumber = CardNumber::FIVE;
 
-	else if ("2" == response)
-		player.setCard(CardNumber::TWO, card);
-
-	else if ("3" == response)
-		player.setCard(CardNumber::THREE, card);
-
-	else if ("4" == response)
-		player.setCard(CardNumber::FOUR, card);
-
-	else if ("5" == response)
-		player.setCard(CardNumber::FIVE, card);
+	board->processRequest(player, cardNumber, newCard);
 
 	return true;
 }

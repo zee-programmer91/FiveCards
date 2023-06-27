@@ -9,6 +9,7 @@
 class Command
 {
 	public:
+		static void garbageEmptyMessage();
 		static std::string getInput();
 		static AvailableCommands getUserCommand(Board* board);
 		static std::string getCardResponse();

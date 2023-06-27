@@ -12,12 +12,16 @@
 class Board
 {
 	public:
-		Board(std::string filePath, std::vector<Player>& players, Deck& deck);
+		Board(std::string filePath, std::vector<Player>& players, Deck& deck, Garbage garbage);
 		~Board();
 		void displayBoard();
 		void displayTitle();
+		void disposeDiscardedCard(Card card);
 		Card getCardFromDeck();
+		Card getCardFromGarbage();
 		Player& getPlayer(int number);
+		bool isGarbageEmpty();
+		void processRequest(Player& player, const CardNumber cardNumber, const Card newCard);
 		bool runGame();
 	private:
 		void readFromFile();
@@ -27,4 +31,5 @@ class Board
 		std::ifstream interfaceFile{};
 		std::vector<Player>& players;
 		Deck deck;
+		Garbage garbage;
 };

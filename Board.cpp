@@ -4,7 +4,8 @@
 #include "GetCardFromDeck.h"
 #include "GetCardFromGarbage.h"
 
-Board::Board(std::string filePath, std::vector<Player>& newPlayers, Deck& newDeck) : players(newPlayers), deck(newDeck)
+Board::Board(std::string filePath, std::vector<Player>& newPlayers, Deck& newDeck, Garbage newGarbage)
+	: players(newPlayers), deck(newDeck), garbage(newGarbage)
 {
 	interfaceFile.open(filePath);
 	readFromFile();
@@ -48,15 +49,37 @@ void Board::displayTitle()
 	std::cout << "						############################\n\n";
 }
 
+void Board::disposeDiscardedCard(Card card)
+{
+	garbage.disposeCard(card);
+}
+
 Card Board::getCardFromDeck()
 {
 	return deck.getNextCard();
+}
+
+Card Board::getCardFromGarbage()
+{
+	return garbage.retrieveLastDisposedCard();
 }
 
 Player& Board::getPlayer(int number)
 {
 	number--;
 	return players[number];
+}
+
+bool Board::isGarbageEmpty()
+{
+	return garbage.empty();
+}
+
+void Board::processRequest(Player& player, const CardNumber cardNumber, const Card newCard)
+{
+	auto playerCard = player.getCard(cardNumber);
+	disposeDiscardedCard(playerCard);
+	player.setCard(cardNumber, newCard);
 }
 
 void Board::readFromFile()
@@ -87,10 +110,7 @@ bool Board::runGame()
 		return Command::handleRequest<GetCardFromDeck>(this);
 	}
 
-	else if (request == AvailableCommands::GetCardFromGarbage)
-	{
-		return Command::handleRequest<GetCardFromGarbage>(this);
-	}
+	return Command::handleRequest<GetCardFromGarbage>(this);
 }
 
 void Board::refreshBoard()
@@ -122,5 +142,12 @@ void Board::refreshBoard()
 		boardInterface[availablePlayer][card5Value] = players[count].getCard(5).getCardValue();
 		boardInterface[availablePlayer][card5Type] = players[count].getCard(5).getCardType();
 		count++;
+	}
+
+	if (!garbage.empty())
+	{
+		auto card = garbage.retrieveTopcard();
+		boardInterface[GarbagePosition::row][GarbagePosition::leftPosition] = card.getCardValue();
+		boardInterface[GarbagePosition::row][GarbagePosition::rightPosition] = card.getCardType();
 	}
 }

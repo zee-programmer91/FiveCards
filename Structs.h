@@ -4,7 +4,7 @@
 enum PlayerRow
 {
 	player1 = 1,
-	player2 = 9,
+	player2 = 5,
 };
 
 enum CardPositions
@@ -39,4 +39,11 @@ enum CardNumber
 	THREE = 3,
 	FOUR = 4,
 	FIVE = 5,
+};
+
+enum GarbagePosition
+{
+	row = 3,
+	leftPosition = 10,
+	rightPosition = 11,
 };

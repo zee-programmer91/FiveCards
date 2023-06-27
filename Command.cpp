@@ -1,5 +1,10 @@
 #include "Command.h"
 
+void Command::garbageEmptyMessage()
+{
+	std::cout << "Sorry, garbage is currently empty!\nTry pick card from Deck\n";
+}
+
 AvailableCommands Command::getUserCommand(Board* board)
 {
 	std::string response;
