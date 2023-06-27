@@ -16,7 +16,6 @@ class Tests
 		static bool runTests();
 	private:
 		static bool testCard();
-		static bool testCommand();
 		static bool testDeck();
 		static bool testHelper();
 		static bool testPlayer();
