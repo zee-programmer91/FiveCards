@@ -148,7 +148,7 @@
     <ClCompile Include="Garbage.cpp" />
     <ClCompile Include="GetCardFromDeck.cpp" />
     <ClCompile Include="GetCardFromGarbage.cpp" />
-    <ClCompile Include="GetFrom.cpp" />
+    <ClCompile Include="GetCardFrom.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Print.cpp" />

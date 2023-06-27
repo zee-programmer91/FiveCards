@@ -54,7 +54,7 @@
     <ClCompile Include="GetCardFromGarbage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GetFrom.cpp">
+    <ClCompile Include="GetCardFrom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
