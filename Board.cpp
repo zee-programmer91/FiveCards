@@ -75,7 +75,7 @@ void Board::readFromFile()
 
 bool Board::runGame()
 {
-	auto request = Command::getUserRequest(this);
+	auto request = Command::getUserCommand(this);
 
 	if (request == AvailableCommands::Exit)
 	{

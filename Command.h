@@ -9,10 +9,9 @@
 class Command
 {
 	public:
-		Command(std::string instruction);
-		std::string getCommandName();
-		bool execute();
-		static AvailableCommands getUserRequest(Board* board);
+		static std::string getInput();
+		static AvailableCommands getUserCommand(Board* board);
+		static std::string getCardResponse();
 
 		template<typename CommandType>
 		static bool handleRequest(Board* board)

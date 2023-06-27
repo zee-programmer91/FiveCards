@@ -5,9 +5,6 @@ bool Tests::runTests()
 	if (!testCard())
 		return false;
 
-	if (!testCommand())
-		return false;
-
 	if (!testDeck())
 		return false;
 
@@ -35,19 +32,6 @@ bool Tests::testCard()
 	{
 		std::cout << "Card.getCardType()\nExpected: H\nActual: "
 			<< card.getCardType() << "\n";
-		return false;
-	}
-
-	return true;
-}
-
-bool Tests::testCommand()
-{
-	Command command{ "CommandTest" };
-	if ("CommandTest" != command.getCommandName())
-	{
-		std::cout << "Command.getCommandName()\nExpected: \"CommandTest\"\nActual: "
-			<< command.getCommandName() << "\n";
 		return false;
 	}
 
