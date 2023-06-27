@@ -9,6 +9,11 @@ Card Player::getCard(int position)
 	return card;
 }
 
+std::array<Card, 5> Player::getPlayerCards()
+{
+	return cards;
+}
+
 void Player::setCard(int position, Card newCard)
 {
 	position--;

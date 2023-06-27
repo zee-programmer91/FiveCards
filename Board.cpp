@@ -17,6 +17,51 @@ Board::~Board()
 	interfaceFile.close();
 }
 
+Winner Board::checkWinner()
+{
+	auto winner = Winner::None;
+	auto player = players[playerTurn];
+
+	//	map to save repeating cards
+	std::map<std::string, int> cardsCount{};
+
+	for (auto card : player.getPlayerCards())
+	{
+		if (cardsCount.find(card.getCardValue()) == cardsCount.end())
+		{
+			cardsCount[card.getCardValue()] = 1;
+		}
+		else
+		{
+			auto& count = cardsCount[card.getCardValue()];
+			count++;
+		}
+
+	}
+
+	if (2 == cardsCount.size())
+	{
+		std::cout << "Possible Winning Cards:\n-----------------------\n";
+		for (auto cardCount : cardsCount)
+		{
+			std::cout << "Value: " << cardCount.first;
+			std::cout << " --> Count: " << cardCount.second << "\n";
+		}
+		winner = 0 == playerTurn ? Winner::Player1 : Winner::Player2;
+	}
+	else
+	{
+		std::cout << "Cards Count:\n------------\n";
+		for (auto cardCount : cardsCount)
+		{
+			std::cout << "Value: " << cardCount.first;
+			std::cout << " --> Count: " << cardCount.second << "\n";
+		}
+	}
+
+	return winner;
+}
+
 void Board::initializePlayerCards()
 {
 	for (auto& player : players)
@@ -64,10 +109,18 @@ Card Board::getCardFromGarbage()
 	return garbage.retrieveLastDisposedCard();
 }
 
-Player& Board::getPlayer(int number)
+Player& Board::getPlayer()
 {
-	number--;
-	return players[number];
+	if (0 == playerTurn)
+		playerTurn = players.size();
+	playerTurn--;
+
+	return players[playerTurn];
+}
+
+int Board::getPlayerTurn()
+{
+	return playerTurn;
 }
 
 bool Board::isGarbageEmpty()

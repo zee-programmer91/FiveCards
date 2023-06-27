@@ -22,6 +22,13 @@ int main()
 		while (continueGame)
 		{
 			continueGame = board.runGame();
+			auto winner = board.checkWinner();
+
+			if (winner == Winner::Player1 && winner == Winner::Player2)
+			{
+				std::cout << "Player " << winner << " won the game!!\n";
+				break;
+			}
 		}
 	}
 }
