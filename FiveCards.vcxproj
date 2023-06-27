@@ -148,6 +148,7 @@
     <ClCompile Include="Garbage.cpp" />
     <ClCompile Include="GetCardFromDeck.cpp" />
     <ClCompile Include="GetCardFromGarbage.cpp" />
+    <ClCompile Include="GetFrom.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Print.cpp" />
@@ -156,11 +157,11 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Card.h" />
-    <ClInclude Include="CardPositions.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Exit.h" />
     <ClInclude Include="Garbage.h" />
+    <ClInclude Include="GetCardFrom.h" />
     <ClInclude Include="GetCardFromDeck.h" />
     <ClInclude Include="GetCardFromGarbage.h" />
     <ClInclude Include="Helper.h" />

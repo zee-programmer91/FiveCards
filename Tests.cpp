@@ -1,23 +1,23 @@
 #include "Tests.h"
 
-bool Tests::runTests()
+bool Tests::RunTests()
 {
-	if (!testCard())
+	if (!TestCard())
 		return false;
 
-	if (!testDeck())
+	if (!TestDeck())
 		return false;
 
-	if (!testHelper())
+	if (!TestHelper())
 		return false;
 
-	if (!testPlayer())
+	if (!TestPlayer())
 		return false;
 
 	return true;
 }
 
-bool Tests::testCard()
+bool Tests::TestCard()
 {
 	Card card{ "1", CardTypes::hearts };
 
@@ -38,9 +38,9 @@ bool Tests::testCard()
 	return true;
 }
 
-bool Tests::testHelper()
+bool Tests::TestHelper()
 {
-	auto phrases = Helper::split("one two three", ' ');
+	auto phrases = Helper::Split("one two three", ' ');
 
 	if (3 != phrases.size())
 	{
@@ -49,7 +49,7 @@ bool Tests::testHelper()
 		return false;
 	}
 
-	phrases = Helper::split("one,two,three,four", ',');
+	phrases = Helper::Split("one,two,three,four", ',');
 
 	if (4 != phrases.size())
 	{
@@ -61,7 +61,7 @@ bool Tests::testHelper()
 	return true;
 }
 
-bool Tests::testDeck()
+bool Tests::TestDeck()
 {
 	Deck deck{};
 	auto size = deck.getAllDeckCards().size();
@@ -76,7 +76,7 @@ bool Tests::testDeck()
 	return true;
 }
 
-bool Tests::testPlayer()
+bool Tests::TestPlayer()
 {
 	Player player{};
 	player.setCard(3, Card{"2", CardTypes::hearts });

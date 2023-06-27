@@ -7,7 +7,7 @@
 int main()
 {
 
-	if (Tests::runTests())
+	if (Tests::RunTests())
 	{
 		auto continueGame = true;
 		Deck deck{};

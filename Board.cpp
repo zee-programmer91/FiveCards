@@ -98,19 +98,19 @@ void Board::readFromFile()
 
 bool Board::runGame()
 {
-	auto request = Command::getUserCommand(this);
+	auto request = Command::GetUserCommand(this);
 
 	if (request == AvailableCommands::Exit)
 	{
-		return Command::handleRequest<Exit>(this);
+		return Command::HandleRequest<Exit>(this);
 	}
 
 	else if (request == AvailableCommands::GetCardFromDeck)
 	{
-		return Command::handleRequest<GetCardFromDeck>(this);
+		return Command::HandleRequest<GetCardFromDeck>(this);
 	}
 
-	return Command::handleRequest<GetCardFromGarbage>(this);
+	return Command::HandleRequest<GetCardFromGarbage>(this);
 }
 
 void Board::refreshBoard()
@@ -147,7 +147,7 @@ void Board::refreshBoard()
 	if (!garbage.empty())
 	{
 		auto card = garbage.retrieveTopcard();
-		boardInterface[GarbagePosition::row][GarbagePosition::leftPosition] = card.getCardValue();
-		boardInterface[GarbagePosition::row][GarbagePosition::rightPosition] = card.getCardType();
+		boardInterface[GarbagePosition::G_row][GarbagePosition::leftPosition] = card.getCardValue();
+		boardInterface[GarbagePosition::G_row][GarbagePosition::rightPosition] = card.getCardType();
 	}
 }

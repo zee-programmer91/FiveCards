@@ -13,7 +13,10 @@ bool Garbage::empty()
 Card Garbage::retrieveLastDisposedCard()
 {
 	auto card = disposedCards.back();
-	disposedCards.erase(disposedCards.end());
+	if (!disposedCards.empty())
+	{
+		disposedCards.erase(disposedCards.end()-1);
+	}
 
 	return card;
 }

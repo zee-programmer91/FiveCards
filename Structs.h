@@ -43,7 +43,7 @@ enum CardNumber
 
 enum GarbagePosition
 {
-	row = 3,
+	G_row = 3,
 	leftPosition = 10,
 	rightPosition = 11,
 };

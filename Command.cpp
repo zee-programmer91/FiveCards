@@ -1,11 +1,11 @@
 #include "Command.h"
 
-void Command::garbageEmptyMessage()
+void Command::GarbageEmptyMessage()
 {
 	std::cout << "Sorry, garbage is currently empty!\nTry pick card from Deck\n";
 }
 
-AvailableCommands Command::getUserCommand(Board* board)
+AvailableCommands Command::GetUserCommand(Board* board)
 {
 	std::string response;
 
@@ -17,7 +17,7 @@ AvailableCommands Command::getUserCommand(Board* board)
 		std::cout << "2 - Get Card From Deck\n";
 		std::cout << "3 - Get Card from Garbage\n";
 
-		response = getInput();
+		response = GetInput();
 
 		if ("1" != response && "2" != response && "3" != response)
 			std::cout << "ERROR: COMMNAND '" << response << "' DOES NOT EXIST.\nTRY AGAIN\n";
@@ -34,7 +34,7 @@ AvailableCommands Command::getUserCommand(Board* board)
 	return AvailableCommands::GetCardFromGarbage;
 }
 
-std::string Command::getInput()
+std::string Command::GetInput()
 {
 	std::string response;
 	std::cout << "\n>> ";
@@ -44,7 +44,7 @@ std::string Command::getInput()
 	return response;
 }
 
-std::string Command::getCardResponse()
+std::string Command::GetCardResponse()
 {
 	std::string response;
 	while (true)
@@ -56,7 +56,7 @@ std::string Command::getCardResponse()
 		std::cout << "4 - Card 4\n";
 		std::cout << "5 - Card 5\n";
 
-		response = getInput();
+		response = GetInput();
 
 		if ("1" != response && "2" != response && "3" != response && "4" != response && "5" != response)
 			std::cout << "ERROR: CARD NUMBER '" << response << "' DOES NOT EXIST.\nTRY AGAIN\n\n";
