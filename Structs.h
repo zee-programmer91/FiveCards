@@ -47,3 +47,10 @@ enum GarbagePosition
 	leftPosition = 10,
 	rightPosition = 11,
 };
+
+enum Winner
+{
+	None = 0,
+	Player1 = 1,
+	Player2 = 2,
+};

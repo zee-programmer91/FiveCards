@@ -14,12 +14,15 @@ class Board
 	public:
 		Board(std::string filePath, std::vector<Player>& players, Deck& deck, Garbage garbage);
 		~Board();
+
+		Winner checkWinner();
 		void displayBoard();
 		void displayTitle();
 		void disposeDiscardedCard(Card card);
 		Card getCardFromDeck();
 		Card getCardFromGarbage();
-		Player& getPlayer(int number);
+		int getPlayerTurn();
+		Player& getPlayer();
 		bool isGarbageEmpty();
 		void processRequest(Player& player, const CardNumber cardNumber, const Card newCard);
 		bool runGame();
@@ -32,4 +35,5 @@ class Board
 		std::vector<Player>& players;
 		Deck deck;
 		Garbage garbage;
+		int playerTurn = 2;
 };
