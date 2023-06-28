@@ -24,7 +24,7 @@ class Board
 		int getPlayerTurn();
 		Player& getPlayer();
 		bool isGarbageEmpty();
-		void processRequest(Player& player, const CardNumber cardNumber, const Card newCard);
+		void processRequest(Player& player, const Card newCard, std::string& response);
 		bool runGame();
 	private:
 		void readFromFile();
