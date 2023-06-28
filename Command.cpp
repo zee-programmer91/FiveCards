@@ -46,10 +46,12 @@ std::string Command::GetInput()
 
 std::string Command::GetCardResponse()
 {
+	std::vector<std::string> availableOptions = {"0", "1", "2", "3", "4", "5"};
 	std::string response;
 	while (true)
 	{
 		std::cout << "Which card do you want to replaced?\n";
+		std::cout << "0 - Discard Picked Card\n";
 		std::cout << "1 - Card 1\n";
 		std::cout << "2 - Card 2\n";
 		std::cout << "3 - Card 3\n";
@@ -58,7 +60,7 @@ std::string Command::GetCardResponse()
 
 		response = GetInput();
 
-		if ("1" != response && "2" != response && "3" != response && "4" != response && "5" != response)
+		if (1 > std::count(availableOptions.begin(), availableOptions.end(), response))
 			std::cout << "ERROR: CARD NUMBER '" << response << "' DOES NOT EXIST.\nTRY AGAIN\n\n";
 		else
 			break;
