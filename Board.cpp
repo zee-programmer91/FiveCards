@@ -109,7 +109,7 @@ Card Board::getCardFromGarbage()
 	return garbage.retrieveLastDisposedCard();
 }
 
-Player& Board::getPlayer(int number)
+Player& Board::getPlayer()
 {
 	return garbage.retrieveLastDisposedCard();
 }
@@ -145,11 +145,29 @@ bool Board::isGarbageEmpty()
 	return garbage.empty();
 }
 
-void Board::processRequest(Player& player, const CardNumber cardNumber, const Card newCard)
+void Board::processRequest(Player& player, const Card newCard, std::string& response)
 {
-	auto playerCard = player.getCard(cardNumber);
-	disposeDiscardedCard(playerCard);
-	player.setCard(cardNumber, newCard);
+	if ("0" == response)
+	{
+		disposeDiscardedCard(newCard);
+	}
+	else
+	{
+		auto cardNumber = CardNumber::ONE;
+
+		if ("2" == response)
+			cardNumber = CardNumber::TWO;
+		if ("3" == response)
+			cardNumber = CardNumber::THREE;
+		if ("4" == response)
+			cardNumber = CardNumber::FOUR;
+		if ("5" == response)
+			cardNumber = CardNumber::FIVE;
+
+		auto playerCard = player.getCard(cardNumber);
+		disposeDiscardedCard(playerCard);
+		player.setCard(cardNumber, newCard);
+	}
 }
 
 void Board::readFromFile()
