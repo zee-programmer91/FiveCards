@@ -41,7 +41,7 @@ Winner Board::checkWinner()
 
 	if (2 == cardsCount.size())
 	{
-		std::cout << "Possible Winning Cards:\n-----------------------\n";
+		std::cout << "\nWinning Cards:\n--------------\n";
 		for (auto cardCount : cardsCount)
 		{
 			std::cout << "Value: " << cardCount.first;
