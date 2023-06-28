@@ -111,6 +111,11 @@ Card Board::getCardFromGarbage()
 
 Player& Board::getPlayer()
 {
+	return garbage.retrieveLastDisposedCard();
+}
+
+Player& Board::getPlayer()
+{
 	if (0 == playerTurn)
 		playerTurn = players.size();
 	playerTurn--;
@@ -121,6 +126,18 @@ Player& Board::getPlayer()
 int Board::getPlayerTurn()
 {
 	return playerTurn;
+}
+
+bool Board::isGarbageEmpty()
+{
+	return garbage.empty();
+}
+
+void Board::processRequest(Player& player, const CardNumber cardNumber, const Card newCard)
+{
+	auto playerCard = player.getCard(cardNumber);
+	disposeDiscardedCard(playerCard);
+	player.setCard(cardNumber, newCard);
 }
 
 bool Board::isGarbageEmpty()
