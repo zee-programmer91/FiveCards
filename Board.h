@@ -15,11 +15,12 @@ class Board
 		Board(std::string filePath, std::vector<Player>& players, Deck& deck, Garbage garbage);
 		~Board();
 
+		bool changePlayer = true;
+
 		Winner checkWinner();
 		void changePlayerTurn();
 		std::map<std::string, int> countPlayerCards(Processes process);
 		void displayBoard();
-		void displayTitle();
 		void disposeDiscardedCard(Card card);
 		Card getCardFromDeck();
 		Card getCardFromGarbage(GarbageOptions option);
