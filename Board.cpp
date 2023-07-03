@@ -210,6 +210,12 @@ void Board::processRequest(Player& player, const Card newCard, std::string& resp
 
 		auto playerCard = player.getCard(cardNumber);
 		disposeDiscardedCard(playerCard);
+
+		if (!player.isComputer())
+			std::cout << "--> Player " << (playerTurn + 1) << " disposed the following card: " << playerCard.getCardInfor() << "\n";
+		else
+			std::cout << "--> Computer " << (playerTurn + 1) << " disposed the following card: " << playerCard.getCardInfor() << "\n";
+
 		player.setCard(cardNumber, newCard);
 	}
 }

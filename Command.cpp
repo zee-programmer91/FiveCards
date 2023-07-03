@@ -33,7 +33,9 @@ AvailableCommands Command::GetUserCommand(Board* board)
 		}
 		else
 		{
-			std::cout << "\n+++++++++++++\nComputer turn\n+++++++++++++\n";
+			std::cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++\nComputer turn\n"
+					  << "++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+
 			response = board->getComputerResponse(ComputerResponses::CommandResponse);
 			break;
 		}
@@ -88,7 +90,6 @@ std::string Command::GetCardResponse(Board* board, Card newCard)
 	}
 	else
 	{
-		std::cout << "\n+++++++++++++\nComputer turn\n+++++++++++++\n";
 		response = board->getComputerResponse(ComputerResponses::CardResponse, newCard);
 	}
 

@@ -1,7 +1,6 @@
 #include "Player.h"
 #include "Print.cpp"
 
-Player::Player(){};
 Player::Player(bool computer) : computerPlayer(computer){}
 
 Card Player::getCard(int position)
