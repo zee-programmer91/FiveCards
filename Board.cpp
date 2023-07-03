@@ -1,5 +1,6 @@
 #include "Board.h"
 #include "Command.h"
+#include "Display.h"
 #include "Exit.h"
 #include "GetCardFromDeck.h"
 #include "GetCardFromGarbage.h"
@@ -26,12 +27,7 @@ Winner Board::checkWinner()
 
 	if (2 == cardsCount.size())
 	{
-		std::cout << "\nWinning Cards:\n--------------\n";
-		for (auto cardCount : cardsCount)
-		{
-			std::cout << "Value: " << cardCount.first;
-			std::cout << " --> Count: " << cardCount.second << "\n";
-		}
+		Display::WinningCards(cardsCount);
 		winner = 0 == playerTurn ? Winner::Player1Wins : Winner::Player2Wins;
 	}
 
@@ -83,21 +79,14 @@ void Board::initializePlayerCards()
 void Board::displayBoard()
 {
 	refreshBoard();
-	std::cout << "\n";
+	Display::NormalMessage("\n");
 	for (const auto row : boardInterface)
 	{
 		for (const auto value : row)
-			std::cout << value;
+			Display::NormalMessage(value);
 
-		std::cout << "\n";
+		Display::NormalMessage("\n");
 	}
-}
-
-void Board::displayTitle()
-{
-	std::cout << "\n						############################\n";
-	std::cout << "						 WELCOME TO FIVE CARDS GAME\n";
-	std::cout << "						############################\n\n";
 }
 
 void Board::disposeDiscardedCard(Card card)
@@ -211,11 +200,7 @@ void Board::processRequest(Player& player, const Card newCard, std::string& resp
 		auto playerCard = player.getCard(cardNumber);
 		disposeDiscardedCard(playerCard);
 
-		if (!player.isComputer())
-			std::cout << "--> Player " << (playerTurn + 1) << " disposed the following card: " << playerCard.getCardInfor() << "\n";
-		else
-			std::cout << "--> Computer " << (playerTurn + 1) << " disposed the following card: " << playerCard.getCardInfor() << "\n";
-
+		Display::DisposedCardMessage(player, this, playerCard);
 		player.setCard(cardNumber, newCard);
 	}
 }
