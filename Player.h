@@ -6,8 +6,7 @@
 class Player
 {
 	public:
-		Player();
-		Player(bool computerPlayer);
+		Player(bool computerPlayer = false);
 		void setCard(int position, Card newCard);
 		Card getCard(int position);
 		std::array<Card, 5> getPlayerCards();
