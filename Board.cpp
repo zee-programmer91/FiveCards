@@ -201,7 +201,6 @@ void Board::processRequest(Player& player, const Card newCard, std::string& resp
 		disposeDiscardedCard(playerCard);
 
 		Display::DisposedCardMessage(player, this, playerCard);
-
 		player.setCard(cardNumber, newCard);
 	}
 }
