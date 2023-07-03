@@ -1,8 +1,5 @@
-#include "Board.h"
+#include "Display.h"
 #include "Tests.h"
-
-#include <iostream>
-#include <set>
 
 int main()
 {
@@ -17,14 +14,14 @@ int main()
 		std::vector<Player> players{ player1 , player2};
 
 		Board board{ "Board.txt", players, deck, garbage };
-		board.displayTitle();
+		Display::DisplayTitle("WELCOME TO FIVE CARDS GAME");
 
 		while (continueGame)
 		{
 			continueGame = board.runGame();
 
 			if (board.getPlayer().isComputer())
-				std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+				Display::NormalMessage("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 
 			if (continueGame)
 			{
