@@ -78,7 +78,7 @@ bool Tests::TestDeck()
 
 bool Tests::TestPlayer()
 {
-	Player player{ false };
+	Player player{};
 	player.setCard(3, Card{"2", CardTypes::Hearts });
 
 	auto thirdCard = player.getCard(3);

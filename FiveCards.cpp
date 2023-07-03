@@ -13,7 +13,7 @@ int main()
 		Deck deck{};
 		Garbage garbage{};
 		Player player1{ true };
-		Player player2{ false };
+		Player player2{};
 		std::vector<Player> players{ player1 , player2};
 
 		Board board{ "Board.txt", players, deck, garbage };
@@ -22,6 +22,9 @@ int main()
 		while (continueGame)
 		{
 			continueGame = board.runGame();
+
+			if (board.getPlayer().isComputer())
+				std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
 
 			if (continueGame)
 			{
