@@ -6,15 +6,19 @@
 class Player
 {
 	public:
+		Player();
+		Player(bool computerPlayer);
 		void setCard(int position, Card newCard);
 		Card getCard(int position);
 		std::array<Card, 5> getPlayerCards();
+		bool isComputer();
 	private:
+		bool computerPlayer;
 		std::array<Card, 5> cards = {
-			Card{"E", CardTypes::empty},
-			Card{"E", CardTypes::empty},
-			Card{"E", CardTypes::empty},
-			Card{"E", CardTypes::empty},
-			Card{"E", CardTypes::empty},
+			Card{"E", CardTypes::Empty},
+			Card{"E", CardTypes::Empty},
+			Card{"E", CardTypes::Empty},
+			Card{"E", CardTypes::Empty},
+			Card{"E", CardTypes::Empty},
 		};
 };

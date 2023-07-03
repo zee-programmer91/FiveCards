@@ -12,17 +12,31 @@ AvailableCommands Command::GetUserCommand(Board* board)
 	while (true)
 	{
 		board->displayBoard();
-		std::cout << "\nWhat do you want to do?\n";
-		std::cout << "1 - Exit\n";
-		std::cout << "2 - Get Card From Deck\n";
-		std::cout << "3 - Get Card from Garbage\n";
 
-		response = GetInput();
+		//auto playerTurn = board->getPlayerTurn();
+		board->changePlayerTurn();
+		auto player = board->getPlayer();
 
-		if ("1" != response && "2" != response && "3" != response)
-			std::cout << "ERROR: COMMNAND '" << response << "' DOES NOT EXIST.\nTRY AGAIN\n";
+		if (!player.isComputer())
+		{
+			std::cout << "\nWhat do you want to do?\n";
+			std::cout << "1 - Exit\n";
+			std::cout << "2 - Get Card From Deck\n";
+			std::cout << "3 - Get Card from Garbage\n";
+
+			response = GetInput();
+
+			if ("1" != response && "2" != response && "3" != response)
+				std::cout << "ERROR: COMMNAND '" << response << "' DOES NOT EXIST.\nTRY AGAIN\n";
+			else
+				break;
+		}
 		else
+		{
+			std::cout << "\n+++++++++++++\nComputer turn\n+++++++++++++\n";
+			response = board->getComputerResponse(ComputerResponses::CommandResponse);
 			break;
+		}
 	}
 
 	if ("1" == response)
@@ -44,26 +58,38 @@ std::string Command::GetInput()
 	return response;
 }
 
-std::string Command::GetCardResponse()
+std::string Command::GetCardResponse(Board* board, Card newCard)
 {
 	std::vector<std::string> availableOptions = {"0", "1", "2", "3", "4", "5"};
 	std::string response;
-	while (true)
+
+	auto playerTurn = board->getPlayerTurn();
+	auto player = board->getPlayers()[playerTurn];
+
+	if (!player.isComputer())
 	{
-		std::cout << "Which card do you want to replaced?\n";
-		std::cout << "0 - Discard Picked Card\n";
-		std::cout << "1 - Card 1\n";
-		std::cout << "2 - Card 2\n";
-		std::cout << "3 - Card 3\n";
-		std::cout << "4 - Card 4\n";
-		std::cout << "5 - Card 5\n";
+		while (true)
+		{
+			std::cout << "Which card do you want to replaced?\n";
+			std::cout << "0 - Discard Picked Card\n";
+			std::cout << "1 - Card 1\n";
+			std::cout << "2 - Card 2\n";
+			std::cout << "3 - Card 3\n";
+			std::cout << "4 - Card 4\n";
+			std::cout << "5 - Card 5\n";
 
-		response = GetInput();
+			response = GetInput();
 
-		if (1 > std::count(availableOptions.begin(), availableOptions.end(), response))
-			std::cout << "ERROR: CARD NUMBER '" << response << "' DOES NOT EXIST.\nTRY AGAIN\n\n";
-		else
-			break;
+			if (1 > std::count(availableOptions.begin(), availableOptions.end(), response))
+				std::cout << "ERROR: CARD NUMBER '" << response << "' DOES NOT EXIST.\nTRY AGAIN\n\n";
+			else
+				break;
+		}
+	}
+	else
+	{
+		std::cout << "\n+++++++++++++\nComputer turn\n+++++++++++++\n";
+		response = board->getComputerResponse(ComputerResponses::CardResponse, newCard);
 	}
 
 	return response;

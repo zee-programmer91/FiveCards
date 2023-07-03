@@ -17,6 +17,6 @@ public:
 		cardValue = newCard.cardValue;
 	}
 private:
-	CardTypes cardType = CardTypes::empty;
+	CardTypes cardType = CardTypes::Empty;
 	std::string cardValue;
 };

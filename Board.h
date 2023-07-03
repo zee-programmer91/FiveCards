@@ -16,13 +16,17 @@ class Board
 		~Board();
 
 		Winner checkWinner();
+		void changePlayerTurn();
+		std::map<std::string, int> countPlayerCards(Processes process);
 		void displayBoard();
 		void displayTitle();
 		void disposeDiscardedCard(Card card);
 		Card getCardFromDeck();
-		Card getCardFromGarbage();
-		int getPlayerTurn();
+		Card getCardFromGarbage(GarbageOptions option);
 		Player& getPlayer();
+		int getPlayerTurn();
+		std::vector<Player> getPlayers();
+		std::string getComputerResponse(ComputerResponses response, Card newCard = Card{ "E", CardTypes::Empty });
 		bool isGarbageEmpty();
 		void processRequest(Player& player, const Card newCard, std::string& response);
 		bool runGame();

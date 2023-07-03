@@ -12,7 +12,7 @@ class Command
 		static void GarbageEmptyMessage();
 		static std::string GetInput();
 		static AvailableCommands GetUserCommand(Board* board);
-		static std::string GetCardResponse();
+		static std::string GetCardResponse(Board* board, Card newCard);
 
 		template<typename CommandType>
 		static bool HandleRequest(Board* board)

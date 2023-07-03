@@ -12,8 +12,8 @@ int main()
 		auto continueGame = true;
 		Deck deck{};
 		Garbage garbage{};
-		Player player1{};
-		Player player2{};
+		Player player1{ true };
+		Player player2{ false };
 		std::vector<Player> players{ player1 , player2};
 
 		Board board{ "Board.txt", players, deck, garbage };
@@ -22,12 +22,16 @@ int main()
 		while (continueGame)
 		{
 			continueGame = board.runGame();
-			auto winner = board.checkWinner();
 
-			if (winner == Winner::Player1 || winner == Winner::Player2)
+			if (continueGame)
 			{
-				std::cout << "\nPlayer " << winner << " won the game!!\n";
-				break;
+				auto winner = board.checkWinner();
+
+				if (winner == Winner::Player1Wins || winner == Winner::Player2Wins)
+				{
+					std::cout << "\nPlayer " << winner << " won the game!!\n";
+					break;
+				}
 			}
 		}
 	}
