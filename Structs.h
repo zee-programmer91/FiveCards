@@ -3,26 +3,26 @@
 
 enum PlayerRow
 {
-	player1 = 1,
-	player2 = 5,
+	Player1Row = 1,
+	Player2Row = 5,
 };
 
 enum CardPositions
 {
-	card1 = 3,
-	card2 = 8,
-	card3 = 13,
-	card4 = 18,
-	card5 = 23,
+	Card1 = 3,
+	Card2 = 8,
+	Card3 = 13,
+	Card4 = 18,
+	Card5 = 23,
 };
 
 enum class CardTypes
 {
-	empty = 0,
-	clubs = 1,
-	diamonds = 2,
-	hearts = 3,
-	spades = 4,
+	Empty = 0,
+	Clubs = 1,
+	Diamonds = 2,
+	Hearts = 3,
+	Spades = 4,
 };
 
 enum class AvailableCommands
@@ -44,13 +44,31 @@ enum CardNumber
 enum GarbagePosition
 {
 	G_row = 3,
-	leftPosition = 10,
-	rightPosition = 11,
+	LeftPosition = 10,
+	RightPosition = 11,
 };
 
 enum Winner
 {
 	None = 0,
-	Player1 = 1,
-	Player2 = 2,
+	Player1Wins = 1,
+	Player2Wins = 2,
+};
+
+enum Processes
+{
+	CheckWinner = 0,
+	CheckComputerCards = 1,
+};
+
+enum ComputerResponses
+{
+	CommandResponse = 1,
+	CardResponse = 2,
+};
+
+enum GarbageOptions
+{
+	RetrieveCard = 1,
+	RetrieveCardInfor = 2,
 };

@@ -19,19 +19,19 @@ class Deck
 		const std::array<Card, 52> deckCards
 		{
 			{
-				Card{"A", CardTypes::clubs}, Card{"A", CardTypes::diamonds}, Card{"A", CardTypes::hearts}, Card{"A", CardTypes::spades},
-				Card{"2", CardTypes::clubs}, Card{"2", CardTypes::diamonds}, Card{"2", CardTypes::hearts}, Card{"2", CardTypes::spades},
-				Card{"3", CardTypes::clubs}, Card{"3", CardTypes::diamonds}, Card{"3", CardTypes::hearts}, Card{"3", CardTypes::spades},
-				Card{"4", CardTypes::clubs}, Card{"4", CardTypes::diamonds}, Card{"4", CardTypes::hearts}, Card{"4", CardTypes::spades},
-				Card{"5", CardTypes::clubs}, Card{"5", CardTypes::diamonds}, Card{"5", CardTypes::hearts}, Card{"5", CardTypes::spades},
-				Card{"6", CardTypes::clubs}, Card{"6", CardTypes::diamonds}, Card{"6", CardTypes::hearts}, Card{"6", CardTypes::spades},
-				Card{"7", CardTypes::clubs}, Card{"7", CardTypes::diamonds}, Card{"7", CardTypes::hearts}, Card{"7", CardTypes::spades},
-				Card{"8", CardTypes::clubs}, Card{"8", CardTypes::diamonds}, Card{"8", CardTypes::hearts}, Card{"8", CardTypes::spades},
-				Card{"9", CardTypes::clubs}, Card{"9", CardTypes::diamonds}, Card{"9", CardTypes::hearts}, Card{"9", CardTypes::spades},
-				Card{"10", CardTypes::clubs}, Card{"10", CardTypes::diamonds}, Card{"10", CardTypes::hearts}, Card{"10", CardTypes::spades},
-				Card{"J", CardTypes::clubs}, Card{"J", CardTypes::diamonds}, Card{"J", CardTypes::hearts}, Card{"J", CardTypes::spades},
-				Card{"Q", CardTypes::clubs}, Card{"Q", CardTypes::diamonds}, Card{"Q", CardTypes::hearts}, Card{"Q", CardTypes::spades},
-				Card{"K", CardTypes::clubs}, Card{"K", CardTypes::diamonds}, Card{"K", CardTypes::hearts}, Card{"K", CardTypes::spades},
+				Card{"A", CardTypes::Clubs}, Card{"A", CardTypes::Diamonds}, Card{"A", CardTypes::Hearts}, Card{"A", CardTypes::Spades},
+				Card{"2", CardTypes::Clubs}, Card{"2", CardTypes::Diamonds}, Card{"2", CardTypes::Hearts}, Card{"2", CardTypes::Spades},
+				Card{"3", CardTypes::Clubs}, Card{"3", CardTypes::Diamonds}, Card{"3", CardTypes::Hearts}, Card{"3", CardTypes::Spades},
+				Card{"4", CardTypes::Clubs}, Card{"4", CardTypes::Diamonds}, Card{"4", CardTypes::Hearts}, Card{"4", CardTypes::Spades},
+				Card{"5", CardTypes::Clubs}, Card{"5", CardTypes::Diamonds}, Card{"5", CardTypes::Hearts}, Card{"5", CardTypes::Spades},
+				Card{"6", CardTypes::Clubs}, Card{"6", CardTypes::Diamonds}, Card{"6", CardTypes::Hearts}, Card{"6", CardTypes::Spades},
+				Card{"7", CardTypes::Clubs}, Card{"7", CardTypes::Diamonds}, Card{"7", CardTypes::Hearts}, Card{"7", CardTypes::Spades},
+				Card{"8", CardTypes::Clubs}, Card{"8", CardTypes::Diamonds}, Card{"8", CardTypes::Hearts}, Card{"8", CardTypes::Spades},
+				Card{"9", CardTypes::Clubs}, Card{"9", CardTypes::Diamonds}, Card{"9", CardTypes::Hearts}, Card{"9", CardTypes::Spades},
+				Card{"10", CardTypes::Clubs}, Card{"10", CardTypes::Diamonds}, Card{"10", CardTypes::Hearts}, Card{"10", CardTypes::Spades},
+				Card{"J", CardTypes::Clubs}, Card{"J", CardTypes::Diamonds}, Card{"J", CardTypes::Hearts}, Card{"J", CardTypes::Spades},
+				Card{"Q", CardTypes::Clubs}, Card{"Q", CardTypes::Diamonds}, Card{"Q", CardTypes::Hearts}, Card{"Q", CardTypes::Spades},
+				Card{"K", CardTypes::Clubs}, Card{"K", CardTypes::Diamonds}, Card{"K", CardTypes::Hearts}, Card{"K", CardTypes::Spades},
 			}
 		};
 		void shuffleDeck();

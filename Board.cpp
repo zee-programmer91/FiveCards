@@ -20,6 +20,33 @@ Board::~Board()
 Winner Board::checkWinner()
 {
 	auto winner = Winner::None;
+
+	//	map to save repeating cards
+	auto cardsCount = countPlayerCards(Processes::CheckWinner);
+
+	if (2 == cardsCount.size())
+	{
+		std::cout << "\nWinning Cards:\n--------------\n";
+		for (auto cardCount : cardsCount)
+		{
+			std::cout << "Value: " << cardCount.first;
+			std::cout << " --> Count: " << cardCount.second << "\n";
+		}
+		winner = 0 == playerTurn ? Winner::Player1Wins : Winner::Player2Wins;
+	}
+
+	return winner;
+}
+
+void Board::changePlayerTurn()
+{
+	if (0 == playerTurn)
+		playerTurn = players.size();
+	playerTurn--;
+}
+
+std::map<std::string, int> Board::countPlayerCards(Processes process)
+{
 	auto player = players[playerTurn];
 
 	//	map to save repeating cards
@@ -36,30 +63,9 @@ Winner Board::checkWinner()
 			auto& count = cardsCount[card.getCardValue()];
 			count++;
 		}
-
 	}
 
-	if (2 == cardsCount.size())
-	{
-		std::cout << "\nWinning Cards:\n--------------\n";
-		for (auto cardCount : cardsCount)
-		{
-			std::cout << "Value: " << cardCount.first;
-			std::cout << " --> Count: " << cardCount.second << "\n";
-		}
-		winner = 0 == playerTurn ? Winner::Player1 : Winner::Player2;
-	}
-	else
-	{
-		std::cout << "Cards Count:\n------------\n";
-		for (auto cardCount : cardsCount)
-		{
-			std::cout << "Value: " << cardCount.first;
-			std::cout << " --> Count: " << cardCount.second << "\n";
-		}
-	}
-
-	return winner;
+	return cardsCount;
 }
 
 void Board::initializePlayerCards()
@@ -104,23 +110,78 @@ Card Board::getCardFromDeck()
 	return deck.getNextCard();
 }
 
-Card Board::getCardFromGarbage()
+Card Board::getCardFromGarbage(GarbageOptions option)
 {
-	return garbage.retrieveLastDisposedCard();
+	if (option == GarbageOptions::RetrieveCard)
+	{
+		return garbage.retrieveLastDisposedCard();
+	}
+	return garbage.retrieveTopcard();
 }
 
 Player& Board::getPlayer()
 {
-	if (0 == playerTurn)
-		playerTurn = players.size();
-	playerTurn--;
-
 	return players[playerTurn];
 }
 
 int Board::getPlayerTurn()
 {
 	return playerTurn;
+}
+
+std::string Board::getComputerResponse(ComputerResponses response, Card newCard)
+{
+	std::map<int, std::string> possibleResponses = {
+		{1, "1"}, {2, "2"}, {3, "3"}, {4, "4"}, {5, "5"}
+	};
+
+	auto cardsCount = countPlayerCards(Processes::CheckComputerCards);
+
+	switch (response)
+	{
+		case CommandResponse:
+			for (auto nextCardCount : cardsCount)
+			{
+				auto card = getCardFromGarbage(GarbageOptions::RetrieveCardInfor);
+				switch (nextCardCount.second)
+				{
+				case 1:
+				case 2:
+					if (card.getCardValue() == nextCardCount.first)
+						return possibleResponses.find((int)AvailableCommands::GetCardFromGarbage)->second;
+					break;
+				case 3:
+					continue;
+				}
+			}
+
+			return possibleResponses.find((int)AvailableCommands::GetCardFromDeck)->second;
+		case CardResponse:
+			std::string cardNumber;
+
+			for (auto nextCardCount : cardsCount)
+			{
+				if (1 == nextCardCount.second && newCard.getCardValue() != nextCardCount.first)
+				{
+					cardNumber = nextCardCount.first;
+					break;
+				}
+			}
+
+			auto computerCards = getPlayer().getPlayerCards();
+			auto cardCount = 1;
+
+			for (auto card : computerCards)
+			{
+				if (card.getCardValue() == cardNumber)
+					break;
+				cardCount++;
+			}
+
+			return possibleResponses[cardCount];
+	}
+
+	return possibleResponses.find((int)AvailableCommands::Exit)->second;
 }
 
 bool Board::isGarbageEmpty()
@@ -186,18 +247,18 @@ bool Board::runGame()
 
 void Board::refreshBoard()
 {
-	std::vector<PlayerRow> availablePlayers = { PlayerRow::player1 , PlayerRow::player2 };
+	std::vector<PlayerRow> availablePlayers = { PlayerRow::Player1Row , PlayerRow::Player2Row };
 
-	auto card1Value = CardPositions::card1;
-	auto card1Type = CardPositions::card1 + 1;
-	auto card2Value = CardPositions::card2;
-	auto card2Type = CardPositions::card2 + 1;
-	auto card3Value = CardPositions::card3;
-	auto card3Type = CardPositions::card3 + 1;
-	auto card4Value = CardPositions::card4;
-	auto card4Type = CardPositions::card4 + 1;
-	auto card5Value = CardPositions::card5;
-	auto card5Type = CardPositions::card5 + 1;
+	auto card1Value = CardPositions::Card1;
+	auto card1Type = CardPositions::Card1 + 1;
+	auto card2Value = CardPositions::Card2;
+	auto card2Type = CardPositions::Card2 + 1;
+	auto card3Value = CardPositions::Card3;
+	auto card3Type = CardPositions::Card3 + 1;
+	auto card4Value = CardPositions::Card4;
+	auto card4Type = CardPositions::Card4 + 1;
+	auto card5Value = CardPositions::Card5;
+	auto card5Type = CardPositions::Card5 + 1;
 
 	int count = 0;
 	for (const auto availablePlayer : availablePlayers)
@@ -218,7 +279,12 @@ void Board::refreshBoard()
 	if (!garbage.empty())
 	{
 		auto card = garbage.retrieveTopcard();
-		boardInterface[GarbagePosition::G_row][GarbagePosition::leftPosition] = card.getCardValue();
-		boardInterface[GarbagePosition::G_row][GarbagePosition::rightPosition] = card.getCardType();
+		boardInterface[GarbagePosition::G_row][GarbagePosition::LeftPosition] = card.getCardValue();
+		boardInterface[GarbagePosition::G_row][GarbagePosition::RightPosition] = card.getCardType();
 	}
+}
+
+std::vector<Player> Board::getPlayers()
+{
+	return players;
 }

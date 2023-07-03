@@ -12,7 +12,7 @@ bool GetCardFromGarbage::execute(Board* board)
 	}
 	else
 	{
-		GetFrom::ProcessFromContainer(board, AvailableCommands::GetCardFromGarbage);
+		GetCardFrom::ProcessFromContainer(board, AvailableCommands::GetCardFromGarbage);
 	}
 	return true;
 }
