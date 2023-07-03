@@ -23,6 +23,9 @@ int main()
 		{
 			continueGame = board.runGame();
 
+			if (board.getPlayer().isComputer())
+				std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+
 			if (continueGame)
 			{
 				auto winner = board.checkWinner();
