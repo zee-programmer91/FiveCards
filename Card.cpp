@@ -16,13 +16,13 @@ std::string Card::getCardType()
 {
 	switch (cardType)
 	{
-		case CardTypes::clubs:
+		case CardTypes::Clubs:
 			return "C";
-		case CardTypes::diamonds:
+		case CardTypes::Diamonds:
 			return "D";
-		case CardTypes::hearts:
+		case CardTypes::Hearts:
 			return "H";
-		case CardTypes::spades:
+		case CardTypes::Spades:
 			return "S";
 		default:
 			return "X";

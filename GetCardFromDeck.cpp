@@ -6,7 +6,7 @@
 
 bool GetCardFromDeck::execute(Board* board)
 {
-	GetFrom::ProcessFromContainer(board, AvailableCommands::GetCardFromDeck);
+	GetCardFrom::ProcessFromContainer(board, AvailableCommands::GetCardFromDeck);
 
 	return true;
 }

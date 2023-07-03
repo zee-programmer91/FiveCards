@@ -2,7 +2,7 @@
 #include "GetCardFromDeck.h"
 #include "GetCardFromGarbage.h"
 
-class GetFrom
+class GetCardFrom
 {
 	public:
 		static void ProcessFromContainer(Board* board, AvailableCommands command);

@@ -1,6 +1,9 @@
 #include "Player.h"
 #include "Print.cpp"
 
+Player::Player(){};
+Player::Player(bool computer) : computerPlayer(computer){}
+
 Card Player::getCard(int position)
 {
 	position--;
@@ -18,4 +21,9 @@ void Player::setCard(int position, Card newCard)
 {
 	position--;
 	cards[position] = newCard;
+}
+
+bool Player::isComputer()
+{
+	return computerPlayer;
 }
