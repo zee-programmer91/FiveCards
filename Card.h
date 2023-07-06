@@ -6,7 +6,7 @@
 class Card
 {
 public:
-	Card(std::string value, CardTypes type);
+	Card(std::string value = "E", CardTypes type = CardTypes::Empty);
 	std::string getCardInfor();
 	std::string getCardValue();
 	std::string getCardType();

@@ -29,7 +29,12 @@ int main()
 
 				if (winner == Winner::Player1Wins || winner == Winner::Player2Wins)
 				{
-					std::cout << "\nPlayer " << winner << " won the game!!\n";
+					if (winner == Winner::Player1Wins)
+					{
+						std::cout << "\nComputer won the game!!\n";
+						break;
+					}
+					std::cout << "\nPlayer won the game!!\n";
 					break;
 				}
 			}
