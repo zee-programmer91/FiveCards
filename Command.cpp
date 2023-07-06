@@ -57,7 +57,7 @@ std::string Command::GetCardResponse(Board* board, Card newCard)
 	{
 		while (true)
 		{
-			Display::CardPrompt();
+			Display::CardPrompt(player);
 			response = Display::GetInput();
 
 			if (1 > std::count(availableOptions.begin(), availableOptions.end(), response))
