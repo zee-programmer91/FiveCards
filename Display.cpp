@@ -65,12 +65,12 @@ void Display::NormalMessage(std::string message)
 	std::cout << message;
 }
 
-void Display::WinningCards(std::map<std::string, int> cardsCount)
+void Display::WinningCards(std::array<Card, 5> cards)
 {
-	std::cout << "\nWinning Cards:\n--------------\n";
-	for (auto cardCount : cardsCount)
+	std::cout << "\nWinning Cards:\n-------------------\n";
+	for (auto card : cards)
 	{
-		std::cout << "Value: " << cardCount.first;
-		std::cout << " --> Count: " << cardCount.second << "\n";
+		std::cout << card.getCardInfor() << " ";
 	}
+	std::cout << "\n-------------------\n";
 }

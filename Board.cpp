@@ -27,8 +27,15 @@ Winner Board::checkWinner()
 
 	if (2 == cardsCount.size())
 	{
-		Display::WinningCards(cardsCount);
 		winner = 0 == playerTurn ? Winner::Player1Wins : Winner::Player2Wins;
+		std::array<Card, 5> cards;
+
+		if (Winner::Player1Wins == winner)
+			cards = players[0].getPlayerCards();
+		else if (Winner::Player2Wins == winner)
+			cards = players[1].getPlayerCards();
+			
+		Display::WinningCards(cards);
 	}
 
 	return winner;
