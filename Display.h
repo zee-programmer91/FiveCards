@@ -17,5 +17,5 @@ class Display
 		static void GarbageEmptyMessage();
 		static std::string GetInput();
 		static void NormalMessage(std::string message);
-		static void WinningCards(std::map<std::string, int> cardsCount);
+		static void WinningCards(std::array<Card, 5> cards);
 };
