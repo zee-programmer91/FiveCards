@@ -1,4 +1,5 @@
 #include "Tests.h"
+#include "Display.h"
 
 bool Tests::RunTests()
 {
@@ -68,8 +69,8 @@ bool Tests::TestDeck()
 
 	if (52 != size)
 	{
-		std::cout << "Deck.getAllDeckCards()\nExpected: 52\nActual: "
-			<< deck.getAllDeckCards().size() << "\n";
+		Display::NormalMessage("Deck.getAllDeckCards()\nExpected: 52\nActual: ");
+		std::cout << deck.getAllDeckCards().size() << "\n";
 		return false;
 	}
 
@@ -85,15 +86,17 @@ bool Tests::TestPlayer()
 
 	if ("2" != thirdCard.getCardValue())
 	{
-		std::cout << "Player.getCardValue()\nExpected: 2\nActual: "
-			<< thirdCard.getCardValue() << "\n";
+		Display::NormalMessage("Player.getCardValue()\nExpected: 2\nActual: ");
+		Display::NormalMessage(thirdCard.getCardValue());
+		Display::NormalMessage("\n");
 		return false;
 	}
 
 	if ("H" != thirdCard.getCardType())
 	{
-		std::cout << "Player.getCardValue()\nExpected: H\nActual: "
-			<< thirdCard.getCardType() << "\n";
+		Display::NormalMessage("Player.getCardValue()\nExpected: H\nActual: ");
+		Display::NormalMessage(thirdCard.getCardType());
+		Display::NormalMessage("\n");
 		return false;
 	}
 
