@@ -259,18 +259,36 @@ void Board::refreshBoard()
 	auto card5Type = CardPositions::Card5 + 1;
 
 	int count = 0;
+	auto computerValue = "#";
 	for (const auto availablePlayer : availablePlayers)
 	{
-		boardInterface[availablePlayer][card1Value] = players[count].getCard(1).getCardValue();
-		boardInterface[availablePlayer][card1Type] = players[count].getCard(1).getCardType();
-		boardInterface[availablePlayer][card2Value] = players[count].getCard(2).getCardValue();
-		boardInterface[availablePlayer][card2Type] = players[count].getCard(2).getCardType();
-		boardInterface[availablePlayer][card3Value] = players[count].getCard(3).getCardValue();
-		boardInterface[availablePlayer][card3Type] = players[count].getCard(3).getCardType();
-		boardInterface[availablePlayer][card4Value] = players[count].getCard(4).getCardValue();
-		boardInterface[availablePlayer][card4Type] = players[count].getCard(4).getCardType();
-		boardInterface[availablePlayer][card5Value] = players[count].getCard(5).getCardValue();
-		boardInterface[availablePlayer][card5Type] = players[count].getCard(5).getCardType();
+		switch (availablePlayer)
+		{
+			case Player1Row:
+				boardInterface[availablePlayer][card1Value] = computerValue;
+				boardInterface[availablePlayer][card1Type] = computerValue;
+				boardInterface[availablePlayer][card2Value] = computerValue;
+				boardInterface[availablePlayer][card2Type] = computerValue;
+				boardInterface[availablePlayer][card3Value] = computerValue;
+				boardInterface[availablePlayer][card3Type] = computerValue;
+				boardInterface[availablePlayer][card4Value] = computerValue;
+				boardInterface[availablePlayer][card4Type] = computerValue;
+				boardInterface[availablePlayer][card5Value] = computerValue;
+				boardInterface[availablePlayer][card5Type] = computerValue;
+				break;
+			case Player2Row:
+				boardInterface[availablePlayer][card1Value] = players[count].getCard(1).getCardValue();
+				boardInterface[availablePlayer][card1Type] = players[count].getCard(1).getCardType();
+				boardInterface[availablePlayer][card2Value] = players[count].getCard(2).getCardValue();
+				boardInterface[availablePlayer][card2Type] = players[count].getCard(2).getCardType();
+				boardInterface[availablePlayer][card3Value] = players[count].getCard(3).getCardValue();
+				boardInterface[availablePlayer][card3Type] = players[count].getCard(3).getCardType();
+				boardInterface[availablePlayer][card4Value] = players[count].getCard(4).getCardValue();
+				boardInterface[availablePlayer][card4Type] = players[count].getCard(4).getCardType();
+				boardInterface[availablePlayer][card5Value] = players[count].getCard(5).getCardValue();
+				boardInterface[availablePlayer][card5Type] = players[count].getCard(5).getCardType();
+				break;
+		}
 		count++;
 	}
 
