@@ -8,7 +8,7 @@
 class Display
 {
 	public:
-		static void CardPrompt();
+		static void CardPrompt(Player player);
 		static void CommandError(std::string errorMessage, std::string userResponse);
 		static void CommandPrompt();
 		static void ComputerTurn();
