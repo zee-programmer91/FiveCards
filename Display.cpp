@@ -1,14 +1,14 @@
 #include "Display.h"
 
-void Display::CardPrompt()
+void Display::CardPrompt(Player player)
 {
 	std::cout << "Which card do you want to replaced?\n";
 	std::cout << "0 - Discard Picked Card\n";
-	std::cout << "1 - Card 1\n";
-	std::cout << "2 - Card 2\n";
-	std::cout << "3 - Card 3\n";
-	std::cout << "4 - Card 4\n";
-	std::cout << "5 - Card 5\n";
+	std::cout << "1 - " << player.getCard(1).getCardInfor() << "\n";
+	std::cout << "2 - " << player.getCard(2).getCardInfor() << "\n";
+	std::cout << "3 - " << player.getCard(3).getCardInfor() << "\n";
+	std::cout << "4 - " << player.getCard(4).getCardInfor() << "\n";
+	std::cout << "5 - " << player.getCard(5).getCardInfor() << "\n";
 }
 
 void Display::CommandError(std::string errorMessage, std::string userResponse)
