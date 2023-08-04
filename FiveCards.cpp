@@ -1,4 +1,5 @@
 #include "Display.h"
+#include "FiveCardsEngine.h"
 #include "Tests.h"
 
 int main()
@@ -14,18 +15,19 @@ int main()
 		std::vector<Player> players{ player1 , player2};
 
 		Board board{ "Board.txt", players, deck, garbage };
+		Board* boardPtr = &board;
 		Display::DisplayTitle("WELCOME TO FIVE CARDS GAME");
 
 		while (continueGame)
 		{
-			continueGame = board.runGame();
+			continueGame = FiveCardsEngine::runGame(boardPtr);
 
-			if (board.getPlayer().isComputer())
+			if (boardPtr->getPlayer().isComputer())
 				Display::NormalMessage("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 
 			if (continueGame)
 			{
-				auto winner = board.checkWinner();
+				auto winner = boardPtr->checkWinner();
 
 				if (winner == Winner::Player1Wins || winner == Winner::Player2Wins)
 				{

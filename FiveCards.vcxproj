@@ -146,6 +146,8 @@
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Exit.cpp" />
     <ClCompile Include="FiveCards.cpp" />
+    <ClCompile Include="FiveCardsEngine.cpp" />
+    <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="Garbage.cpp" />
     <ClCompile Include="GetCardFromDeck.cpp" />
     <ClCompile Include="GetCardFromGarbage.cpp" />
@@ -162,6 +164,7 @@
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Exit.h" />
+    <ClInclude Include="FiveCardsEngine.h" />
     <ClInclude Include="Garbage.h" />
     <ClInclude Include="GetCardFrom.h" />
     <ClInclude Include="GetCardFromDeck.h" />
