@@ -16,15 +16,6 @@ enum CardPositions
 	Card5 = 23,
 };
 
-enum class CardTypes
-{
-	Empty = 0,
-	Clubs = 1,
-	Diamonds = 2,
-	Hearts = 3,
-	Spades = 4,
-};
-
 enum class AvailableCommands
 {
 	Exit = 1,
