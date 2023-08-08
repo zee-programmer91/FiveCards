@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Card.h"
+#include "BE/Components/Card/Card.h"
 #include "Garbage.h"
 
 #include <array>
