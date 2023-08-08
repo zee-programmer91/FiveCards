@@ -42,7 +42,7 @@ void Display::DisposedCardMessage(Player player, Board* board, Card card)
 	if (!player.isComputer())
 		std::cout << "--> Player " << (board->getPlayerTurn() + 1) << " disposed the following card: " << card.getCardInfor() << "\n";
 	else
-		std::cout << "--> Computer " << (board->getPlayerTurn() + 1) << " disposed the following card: " << card.getCardInfor() << "\n";
+		std::cout << "--> Computer " << " disposed the following card: " << card.getCardInfor() << "\n";
 }
 
 void Display::GarbageEmptyMessage()

@@ -1,0 +1,7 @@
+<Project>
+	<ItemGroup>
+		<Compile Include="FiveCards.cpp" />
+	</ItemGroup>
+	<Target Name="Build">
+	</Target>
+</Project>
