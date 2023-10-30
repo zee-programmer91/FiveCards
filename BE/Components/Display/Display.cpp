@@ -4,11 +4,11 @@ void Display::CardPrompt(Player player)
 {
 	std::cout << "Which card do you want to replaced?\n";
 	std::cout << "0 - Discard Picked Card\n";
-	std::cout << "1 - " << player.getCard(1).getCardInfor() << "\n";
-	std::cout << "2 - " << player.getCard(2).getCardInfor() << "\n";
-	std::cout << "3 - " << player.getCard(3).getCardInfor() << "\n";
-	std::cout << "4 - " << player.getCard(4).getCardInfor() << "\n";
-	std::cout << "5 - " << player.getCard(5).getCardInfor() << "\n";
+	std::cout << "1 - " << player.getCard(CardNumber::ONE).getCardInfor() << "\n";
+	std::cout << "2 - " << player.getCard(CardNumber::TWO).getCardInfor() << "\n";
+	std::cout << "3 - " << player.getCard(CardNumber::THREE).getCardInfor() << "\n";
+	std::cout << "4 - " << player.getCard(CardNumber::FOUR).getCardInfor() << "\n";
+	std::cout << "5 - " << player.getCard(CardNumber::FIVE).getCardInfor() << "\n";
 }
 
 void Display::CommandError(std::string errorMessage, std::string userResponse)

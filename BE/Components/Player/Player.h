@@ -13,11 +13,5 @@ class Player
 		bool isComputer();
 	private:
 		bool computerPlayer;
-		std::array<Card, 5> cards = {
-			Card{"E", CardTypes::Empty},
-			Card{"E", CardTypes::Empty},
-			Card{"E", CardTypes::Empty},
-			Card{"E", CardTypes::Empty},
-			Card{"E", CardTypes::Empty},
-		};
+		std::array<Card, 5> cards;
 };

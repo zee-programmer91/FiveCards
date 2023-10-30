@@ -24,6 +24,7 @@
     <ProjectGuid>{86d1ff25-d268-415c-b375-5159e843e59c}</ProjectGuid>
     <RootNamespace>FiveCards</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>FiveCardsBE</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -88,7 +89,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Personal\FiveCards\BE\Components\Card;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -103,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Personal\FiveCards\BE\Components\Card;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BE/Components/Board/Board.cpp" />
+    <ClCompile Include="BE/Components/Card/Card.cpp" />
     <ClCompile Include="BE/Components/Command/Command.cpp" />
     <ClCompile Include="BE/Components/Deck/Deck.cpp" />
     <ClCompile Include="BE/Components/Display/Display.cpp" />
@@ -158,6 +160,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BE/Components/Board/Board.h" />
+    <ClInclude Include="BE/Components/Card/Card.h" />
+    <ClInclude Include="BE/Components/Card/CardEnums.h" />
     <ClInclude Include="BE/Components/Command/Command.h" />
     <ClInclude Include="BE/Components/Deck/Deck.h" />
     <ClInclude Include="BE/Components/Display/Display.h" />

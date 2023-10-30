@@ -1,107 +1,132 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Board">
+      <UniqueIdentifier>{5eaa615d-c0c9-4034-bd8b-b87853f3eed6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Card">
+      <UniqueIdentifier>{cc553653-7e15-4a70-9932-48086d550043}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Display">
+      <UniqueIdentifier>{f92150a9-2cd6-447c-8523-d92420ec5589}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exit">
+      <UniqueIdentifier>{09d3b34b-4cb8-4d33-bd52-e6fa139c122a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Garbage">
+      <UniqueIdentifier>{cda0e0f3-bfcb-4a18-9309-57a1a0685206}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Deck">
+      <UniqueIdentifier>{b2c59719-98fb-4aae-af96-8acffd7b0a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command">
+      <UniqueIdentifier>{9687e4ae-c7af-4828-8ed6-69acde7191ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GetCardFrom">
+      <UniqueIdentifier>{e5af8689-e1dc-4bcd-8046-50f5b6a94fe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{9dfd3683-2e59-4ad6-a3f1-fc847280fd18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{bed127ca-5f13-4034-95b7-a4a55ac3a7b8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FiveCards.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/Board/Board.cpp">
+      <Filter>Board</Filter>
     </ClCompile>
-    <ClCompile Include="Deck.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/Card/Card.cpp">
+      <Filter>Card</Filter>
     </ClCompile>
-    <ClCompile Include="Board.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/Deck/Deck.cpp">
+      <Filter>Deck</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/Garbage/Garbage.cpp">
+      <Filter>Garbage</Filter>
     </ClCompile>
-    <ClCompile Include="Command.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/Command/Command.cpp">
+      <Filter>Command</Filter>
     </ClCompile>
-    <ClCompile Include="Helper.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/Display/Display.cpp">
+      <Filter>Display</Filter>
     </ClCompile>
-    <ClCompile Include="Garbage.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/Exit/Exit.cpp">
+      <Filter>Exit</Filter>
     </ClCompile>
-    <ClCompile Include="Tests.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/GetCardFrom/GetCardFrom.cpp">
+      <Filter>GetCardFrom</Filter>
     </ClCompile>
-    <ClCompile Include="Print.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/GetCardFrom/Sub/GetCardFromDeck/GetCardFromDeck.cpp">
+      <Filter>GetCardFrom</Filter>
     </ClCompile>
-    <ClCompile Include="Exit.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/GetCardFrom/Sub/GetCardFromGarbage/GetCardFromGarbage.cpp">
+      <Filter>GetCardFrom</Filter>
     </ClCompile>
-    <ClCompile Include="GetCardFromDeck.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Common/Helper.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="GetCardFromGarbage.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Components/Player/Player.cpp">
+      <Filter>Player</Filter>
     </ClCompile>
-    <ClCompile Include="GetCardFrom.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Common/Print.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BE/Common/Tests.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="../FiveCards/FiveCards.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Deck.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/Board/Board.h">
+      <Filter>Board</Filter>
     </ClInclude>
-    <ClInclude Include="Board.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/Card/Card.h">
+      <Filter>Card</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/Card/CardEnums.h">
+      <Filter>Card</Filter>
     </ClInclude>
-    <ClInclude Include="Command.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/Deck/Deck.h">
+      <Filter>Deck</Filter>
     </ClInclude>
-    <ClInclude Include="Helper.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/Garbage/Garbage.h">
+      <Filter>Garbage</Filter>
     </ClInclude>
-    <ClInclude Include="Garbage.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/Command/Command.h">
+      <Filter>Command</Filter>
     </ClInclude>
-    <ClInclude Include="Tests.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/Display/Display.h">
+      <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="Structs.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/Exit/Exit.h">
+      <Filter>Exit</Filter>
     </ClInclude>
-    <ClInclude Include="Exit.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/GetCardFrom/GetCardFrom.h">
+      <Filter>GetCardFrom</Filter>
     </ClInclude>
-    <ClInclude Include="GetCardFromDeck.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/GetCardFrom/Sub/GetCardFromDeck/GetCardFromDeck.h">
+      <Filter>GetCardFrom</Filter>
     </ClInclude>
-    <ClInclude Include="GetCardFromGarbage.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/GetCardFrom/Sub/GetCardFromGarbage/GetCardFromGarbage.h">
+      <Filter>GetCardFrom</Filter>
     </ClInclude>
-    <ClInclude Include="GetCardFrom.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Common/Helper.h">
+      <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="Display.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BE/Components/Player/Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="BE/Common/Structs.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="BE/Common/Tests.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Board.txt">
-      <Filter>Source Files</Filter>
+    <Text Include="BE/Components/Board/Board.txt">
+      <Filter>Board</Filter>
     </Text>
   </ItemGroup>
 </Project>
