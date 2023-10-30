@@ -1,5 +1,5 @@
-#include "Display.h"
-#include "Tests.h"
+#include "BE/Components/Display/Display.h"
+#include "BE/Common/Tests.h"
 
 int main()
 {
@@ -12,8 +12,9 @@ int main()
 		Player player1{ true };
 		Player player2{};
 		std::vector<Player> players{ player1 , player2};
+		std::string boardFile = "BE/Components/Board/Board.txt";
 
-		Board board{ "Board.txt", players, deck, garbage };
+		Board board{ boardFile, players, deck, garbage };
 		Display::DisplayTitle("WELCOME TO FIVE CARDS GAME");
 
 		while (continueGame)
