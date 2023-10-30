@@ -141,38 +141,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Board.cpp" />
-    <ClCompile Include="Command.cpp" />
-    <ClCompile Include="Deck.cpp" />
-    <ClCompile Include="Display.cpp" />
-    <ClCompile Include="Exit.cpp" />
-    <ClCompile Include="FiveCards.cpp" />
-    <ClCompile Include="Garbage.cpp" />
-    <ClCompile Include="GetCardFromDeck.cpp" />
-    <ClCompile Include="GetCardFromGarbage.cpp" />
-    <ClCompile Include="GetCardFrom.cpp" />
-    <ClCompile Include="Helper.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Print.cpp" />
-    <ClCompile Include="Tests.cpp" />
+    <ClCompile Include="BE/Components/Board/Board.cpp" />
+    <ClCompile Include="BE/Components/Command/Command.cpp" />
+    <ClCompile Include="BE/Components/Deck/Deck.cpp" />
+    <ClCompile Include="BE/Components/Display/Display.cpp" />
+    <ClCompile Include="BE/Components/Exit/Exit.cpp" />
+    <ClCompile Include="../FiveCards/FiveCards.cpp" />
+    <ClCompile Include="BE/Components/Garbage/Garbage.cpp" />
+    <ClCompile Include="BE/Components/GetCardFrom/Sub/GetCardFromDeck/GetCardFromDeck.cpp" />
+    <ClCompile Include="BE/Components/GetCardFrom/Sub/GetCardFromGarbage/GetCardFromGarbage.cpp" />
+    <ClCompile Include="BE/Components/GetCardFrom/GetCardFrom.cpp" />
+    <ClCompile Include="BE/Common/Helper.cpp" />
+    <ClCompile Include="BE/Components/Player/Player.cpp" />
+    <ClCompile Include="BE/Common/Print.cpp" />
+    <ClCompile Include="BE/Common/Tests.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Board.h" />
-    <ClInclude Include="Command.h" />
-    <ClInclude Include="Deck.h" />
-    <ClInclude Include="Display.h" />
-    <ClInclude Include="Exit.h" />
-    <ClInclude Include="Garbage.h" />
-    <ClInclude Include="GetCardFrom.h" />
-    <ClInclude Include="GetCardFromDeck.h" />
-    <ClInclude Include="GetCardFromGarbage.h" />
-    <ClInclude Include="Helper.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Structs.h" />
-    <ClInclude Include="Tests.h" />
+    <ClInclude Include="BE/Components/Board/Board.h" />
+    <ClInclude Include="BE/Components/Command/Command.h" />
+    <ClInclude Include="BE/Components/Deck/Deck.h" />
+    <ClInclude Include="BE/Components/Display/Display.h" />
+    <ClInclude Include="BE/Components/Exit/Exit.h" />
+    <ClInclude Include="BE/Components/Garbage/Garbage.h" />
+    <ClInclude Include="BE/Components/GetCardFrom/GetCardFrom.h" />
+    <ClInclude Include="BE/Components/GetCardFrom/Sub/GetCardFromDeck/GetCardFromDeck.h" />
+    <ClInclude Include="BE/Components/GetCardFrom/Sub/GetCardFromGarbage/GetCardFromGarbage.h" />
+    <ClInclude Include="BE/Common/Helper.h" />
+    <ClInclude Include="BE/Components/Player/Player.h" />
+    <ClInclude Include="BE/Common/Structs.h" />
+    <ClInclude Include="BE/Common/Tests.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Board.txt" />
+    <Text Include="BE/Components/Board/Board.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
