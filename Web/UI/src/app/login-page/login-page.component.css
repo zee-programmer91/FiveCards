@@ -1,0 +1,27 @@
+.home-align {
+    margin-top: 1.5rem;
+    /* text-align: center; */
+    margin-bottom: 0rem;
+}
+
+#main-logo {
+    display: inline;
+    margin-left: 20rem;
+    height: 35rem;
+}
+
+.html {
+    background-color: rgb(191, 187, 187);
+}
+
+.title {
+    font-family: Agbalumo;
+}
+
+.home-title {
+    display: inline;
+    margin-top: 0rem;
+    font-size: 4rem;
+    position: relative;
+    bottom: 15rem;
+}
