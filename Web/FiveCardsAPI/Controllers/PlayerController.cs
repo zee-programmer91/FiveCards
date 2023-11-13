@@ -9,10 +9,10 @@ using System.Text.Json;
 namespace FiveCardsAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class PlayerController : Controller
     {
         [HttpGet]
+        [Route("Players")]
         public List<Player> GetAllPlayers()
         {
             Configuration configuration = Configuration.GetConfiguration();
@@ -43,6 +43,38 @@ namespace FiveCardsAPI.Controllers
             }
 
             return players;
+        }
+
+        [HttpGet]
+        [Route("Players/GetPlayerByID")]
+        public Player GetPlayerByID(int id)
+        {
+            Configuration configuration = Configuration.GetConfiguration();
+            using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
+            connection.Open();
+
+            var command = new SqlCommand("SELECT * FROM Players WHERE PlayerID=@id", connection);
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@id", id);
+
+            using SqlDataReader reader = command.ExecuteReader();
+            Player player = new();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    player.PlayerID = reader.GetInt32(0);
+                    player.PlayerName = reader.GetString(1);
+                    player.BoardID = reader.GetInt32(2);
+                    player.PlayerCardsID = reader.GetInt32(3);
+                    player.isComputer = reader.GetInt32(4);
+                    player.isOnline = reader.GetInt32(5);
+
+                    return player;
+                }
+            }
+
+            return player;
         }
     }
 }
