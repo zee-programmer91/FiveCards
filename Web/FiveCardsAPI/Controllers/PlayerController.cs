@@ -138,5 +138,20 @@ namespace FiveCardsAPI.Controllers
 
             return command.ExecuteNonQuery();
         }
+
+        [HttpDelete]
+        [Route("Players/DeletePlayerByID")]
+        public int DeletePlayerByID(int id)
+        {
+            Configuration configuration = Configuration.GetConfiguration();
+            using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
+            connection.Open();
+
+            var command = new SqlCommand("DELETE FROM Players WHERE PlayerID=@PlayerID", connection);
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@PlayerID", id);
+
+            return command.ExecuteNonQuery();
+        }
     }
 }
