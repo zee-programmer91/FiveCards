@@ -76,5 +76,25 @@ namespace FiveCardsAPI.Controllers
 
             return player;
         }
+
+        [HttpPost]
+        [Route("Players/AddPlayer")]
+        public int AddPlayer(Player player)
+        {
+            Configuration configuration = Configuration.GetConfiguration();
+            using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
+            connection.Open();
+
+            var command = new SqlCommand("INSERT INTO Players (PlayerName, BoardID, PlayerCardsID, isComputer, isOnline)" +
+                                         " VALUES (@PlayerName, @BoardID, @PlayerCardsID, @isComputer, @isOnline)", connection);
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@PlayerName", player.PlayerName);
+            command.Parameters.AddWithValue("@BoardID", player.BoardID);
+            command.Parameters.AddWithValue("@PlayerCardsID", player.PlayerCardsID);
+            command.Parameters.AddWithValue("@isComputer", player.isComputer);
+            command.Parameters.AddWithValue("@isOnline", player.isOnline);
+
+            return command.ExecuteNonQuery();
+        }
     }
 }
