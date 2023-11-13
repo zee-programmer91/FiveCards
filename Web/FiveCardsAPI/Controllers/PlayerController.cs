@@ -34,7 +34,8 @@ namespace FiveCardsAPI.Controllers
                         BoardID = reader.GetInt32(2),
                         PlayerCardsID = reader.GetInt32(3),
                         IsComputer = reader.GetInt32(4),
-                        IsOnline = reader.GetInt32(5)
+                        IsOnline = reader.GetInt32(5),
+                        Status = reader.GetInt32(6)
                     };
 
                     players.Add(player);
@@ -139,17 +140,31 @@ namespace FiveCardsAPI.Controllers
             return command.ExecuteNonQuery();
         }
 
-        [HttpDelete]
-        [Route("Players/DeletePlayerByID")]
-        public int DeletePlayerByID(int id)
+        [HttpPost]
+        [Route("Players/SoftDeletePlayerByID")]
+        public int SoftDeletePlayerByID(int id)
         {
             Configuration configuration = Configuration.GetConfiguration();
             using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
             connection.Open();
 
-            var command = new SqlCommand("DELETE FROM Players WHERE PlayerID=@PlayerID", connection);
+            var command = new SqlCommand("UPDATE Players SET Status=0 WHERE PlayerID=@PlayerID", connection);
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@PlayerID", id);
+
+            return command.ExecuteNonQuery();
+        }
+
+        [HttpPost]
+        [Route("Players/SoftDeleteAllPlayers")]
+        public int SoftDeleteAllPlayers()
+        {
+            Configuration configuration = Configuration.GetConfiguration();
+            using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
+            connection.Open();
+
+            var command = new SqlCommand("UPDATE Players SET Status=0", connection);
+            command.Parameters.Clear();
 
             return command.ExecuteNonQuery();
         }
