@@ -1,0 +1,26 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+
+<section [style.background]="!loggedIn ? 'rgb(219, 219, 224)' : 'rgb(188, 188, 193)'" class="top-bar">
+    <section *ngIf="!loggedIn" class="home-input">
+        <section class="user-input">
+            <label for="username">Username: </label>
+            <input type="text" class="input-size" name="username" id="username" placeholder="username">
+        </section>
+        <section class="user-input">
+            <label for="pasword">Password: </label>
+            <input type="password" class="input-size" name="pasword" id="pasword" placeholder="pasword">
+        </section>
+        <section class="register-login">
+            <a href="#" id="register">Register</a>
+            <button id="login-button" [routerLink]="['/home']">LOGIN</button>
+        </section>
+    </section>
+
+    <section *ngIf="loggedIn" class="home">
+        <img src="../assets/logo.avif" alt="">
+        <p id="title">{{title}}</p>
+        <img id="profile-pic" src="../../assets/blank-pic.webp" alt="">
+    </section>
+</section>

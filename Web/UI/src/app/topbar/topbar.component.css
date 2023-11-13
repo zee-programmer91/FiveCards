@@ -1,0 +1,52 @@
+.user-input {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    margin-right: 2rem;
+    text-align: right;
+}
+
+.input-size {
+    border-radius: 1rem;
+    font-size: 1rem;
+    height: 2rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.register-login {
+    margin-right: 3rem;
+    text-align: right;
+}
+
+.home {
+    display: inline-grid;
+    grid-template-columns: 40rem 50rem auto;
+    height: 10rem;
+}
+
+#register {
+    font-size: 1.5rem;
+}
+
+#login-button {
+    margin-left: 3rem;
+    width: 10rem;
+}
+
+#title {
+    display: inline;
+    font-family: Agbalumo;
+    font-size: 4rem;
+    position: relative;
+    bottom: 2.5rem;
+}
+
+#profile-pic {
+    margin-top: 1rem;
+    text-align: right;
+}
+
+img {
+    height: 8rem;
+    border-radius: 2rem;
+}
