@@ -11,7 +11,8 @@ namespace FiveCardsAPI.Models
         public string PlayerName { get; set; }
         public int BoardID { get; set; }
         public int PlayerCardsID { get; set; }
-        public int isComputer { get; set; }
-        public int isOnline { get; set; }
+        public int IsComputer { get; set; }
+        public int IsOnline { get; set; }
+        public int Status { get; set; }
     }
 }
