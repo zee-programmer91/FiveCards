@@ -1,0 +1,14 @@
+﻿
+namespace FiveCardsAPI.Enums
+{
+    public enum PlayerColumns
+    {
+        PlayerID = 1,
+        PlayerName = 2,
+        BoardID = 3,
+        PlayerCardsID = 4,
+        IsComputer = 5,
+        IsOnline = 6,
+        Status = 7,
+    }
+}
