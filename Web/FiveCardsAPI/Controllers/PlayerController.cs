@@ -10,12 +10,13 @@ namespace FiveCardsAPI.Controllers
     [ApiController]
     public class PlayerController : Controller
     {
+        readonly Configuration configuration = Configuration.GetConfiguration();
+
         [HttpGet]
         [Route("Players")]
-        public List<Player> GetAllPlayers()
+        public List<Player> GetPlayers()
         {
-            Configuration configuration = Configuration.GetConfiguration();
-            List<Player> players = new List<Player>();
+            List<Player> players = new();
 
             using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
             connection.Open();
@@ -49,7 +50,6 @@ namespace FiveCardsAPI.Controllers
         [Route("Players/GetPlayerByID")]
         public Player GetPlayerByID(int id)
         {
-            Configuration configuration = Configuration.GetConfiguration();
             using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
             connection.Open();
 
@@ -81,7 +81,6 @@ namespace FiveCardsAPI.Controllers
         [Route("Players/AddPlayer")]
         public int AddPlayer(Player player)
         {
-            Configuration configuration = Configuration.GetConfiguration();
             using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
             connection.Open();
 
@@ -101,7 +100,6 @@ namespace FiveCardsAPI.Controllers
         [Route("Players/UpdatePlayer")]
         public int UpdatePlayer(Player player)
         {
-            Configuration configuration = Configuration.GetConfiguration();
             using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
             connection.Open();
 
@@ -144,7 +142,6 @@ namespace FiveCardsAPI.Controllers
         [Route("Players/SoftDeletePlayerByID")]
         public int SoftDeletePlayerByID(int id)
         {
-            Configuration configuration = Configuration.GetConfiguration();
             using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
             connection.Open();
 
@@ -159,7 +156,6 @@ namespace FiveCardsAPI.Controllers
         [Route("Players/SoftDeleteAllPlayers")]
         public int SoftDeleteAllPlayers()
         {
-            Configuration configuration = Configuration.GetConfiguration();
             using var connection = new SqlConnection(configuration.ConnectionStrings["AZURE_SQL_CONNECTIONSTRING"]);
             connection.Open();
 

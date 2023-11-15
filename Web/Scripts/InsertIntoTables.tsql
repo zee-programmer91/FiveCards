@@ -1,4 +1,4 @@
-INSERT INTO CardType (Type) VALUES ('Clubs');
-INSERT INTO CardType (Type) VALUES ('Diamonds');
-INSERT INTO CardType (Type) VALUES ('Hearts');
-INSERT INTO CardType (Type) VALUES ('Spades');
+INSERT INTO CardTypes (Type) VALUES ('Clubs');
+INSERT INTO CardTypes (Type) VALUES ('Diamonds');
+INSERT INTO CardTypes (Type) VALUES ('Hearts');
+INSERT INTO CardTypes (Type) VALUES ('Spades');

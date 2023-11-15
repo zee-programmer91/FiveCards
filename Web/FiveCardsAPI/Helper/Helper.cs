@@ -2,13 +2,42 @@
 using FiveCardsAPI.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FiveCardsAPI.HelperFunctions
 {
     public class Helper
     {
+        public static List<int> RandomCardIndicesGenerator()
+        {
+            List<int> randomIndices = new();
+            Random random = new();
+
+            while (52 != randomIndices.Count)
+            {
+                int randomNumber = random.Next(0, 52);
+                if (!randomIndices.Contains(randomNumber))
+                {
+                    randomIndices.Add(randomNumber);
+                }
+            }
+            return randomIndices;
+        }
+
+        public static int DeckID(List<int> deckIDs)
+        {
+            int id = 0;
+
+            for (int index = 0; index < 10000; index++)
+            {
+                if (!deckIDs.Contains(index))
+                {
+                    id = index;
+                    break;
+                }
+            }
+            return id;
+        }
+
         public static KeyValuePair<List<int>, string> UpdateQueryCreator(object instance)
         {
             int count = 0;
