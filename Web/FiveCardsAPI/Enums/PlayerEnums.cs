@@ -11,4 +11,10 @@ namespace FiveCardsAPI.Enums
         IsOnline = 6,
         Status = 7,
     }
+
+    public enum AddingPlayer
+    {
+        Failure = 0,
+        Successful = 1,
+    }
 }

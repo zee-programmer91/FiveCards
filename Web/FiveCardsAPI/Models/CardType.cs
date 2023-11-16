@@ -9,6 +9,5 @@ namespace FiveCardsAPI.Models
     {
         public int CardTypeID { get; set; }
         public string Type { get; set; }
-
     }
 }
